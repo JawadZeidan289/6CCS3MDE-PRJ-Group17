@@ -8,5 +8,8 @@ Bundle-SymbolicName: uk.kcl.ac.inf.jsonlang.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: uk.kcl.ac.inf.jsonlang,
  org.eclipse.xtext.ide,
- org.eclipse.xtext.xbase.ide
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: uk.kcl.ac.inf.jsonlang.ide.contentassist.antlr,
+ uk.kcl.ac.inf.jsonlang.ide.contentassist.antlr.internal
