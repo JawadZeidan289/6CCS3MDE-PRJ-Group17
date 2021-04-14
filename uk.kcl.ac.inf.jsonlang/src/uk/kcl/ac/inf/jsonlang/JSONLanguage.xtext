@@ -1,0 +1,9 @@
+grammar uk.kcl.ac.inf.jsonlang.JSONLanguage with org.eclipse.xtext.common.Terminals
+
+generate jSONLanguage "http://www.kcl.uk/ac/inf/jsonlang/JSONLanguage"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
