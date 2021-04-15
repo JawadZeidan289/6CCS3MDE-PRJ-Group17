@@ -31,9 +31,24 @@ public class JSONLanguageParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, JSONLanguageGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getGreetingAccess().getGroup(), "rule__Greeting__Group__0");
-			builder.put(grammarAccess.getModelAccess().getGreetingsAssignment(), "rule__Model__GreetingsAssignment");
-			builder.put(grammarAccess.getGreetingAccess().getNameAssignment_1(), "rule__Greeting__NameAssignment_1");
+			builder.put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
+			builder.put(grammarAccess.getBooleanAccess().getAlternatives(), "rule__Boolean__Alternatives");
+			builder.put(grammarAccess.getNumberAccess().getAlternatives_4_0(), "rule__Number__Alternatives_4_0");
+			builder.put(grammarAccess.getJSONLanguageAccess().getGroup(), "rule__JSONLanguage__Group__0");
+			builder.put(grammarAccess.getJSONLanguageAccess().getGroup_1(), "rule__JSONLanguage__Group_1__0");
+			builder.put(grammarAccess.getJSONLanguageAccess().getGroup_1_1(), "rule__JSONLanguage__Group_1_1__0");
+			builder.put(grammarAccess.getStatementAccess().getGroup(), "rule__Statement__Group__0");
+			builder.put(grammarAccess.getArrayAccess().getGroup(), "rule__Array__Group__0");
+			builder.put(grammarAccess.getArrayAccess().getGroup_1(), "rule__Array__Group_1__0");
+			builder.put(grammarAccess.getArrayAccess().getGroup_1_1(), "rule__Array__Group_1_1__0");
+			builder.put(grammarAccess.getNumberAccess().getGroup(), "rule__Number__Group__0");
+			builder.put(grammarAccess.getNumberAccess().getGroup_4(), "rule__Number__Group_4__0");
+			builder.put(grammarAccess.getJSONLanguageAccess().getStatementAssignment_1_0(), "rule__JSONLanguage__StatementAssignment_1_0");
+			builder.put(grammarAccess.getJSONLanguageAccess().getStatementAssignment_1_1_1(), "rule__JSONLanguage__StatementAssignment_1_1_1");
+			builder.put(grammarAccess.getStatementAccess().getKeyAssignment_0(), "rule__Statement__KeyAssignment_0");
+			builder.put(grammarAccess.getStatementAccess().getValueAssignment_2(), "rule__Statement__ValueAssignment_2");
+			builder.put(grammarAccess.getArrayAccess().getValueAssignment_1_0(), "rule__Array__ValueAssignment_1_0");
+			builder.put(grammarAccess.getArrayAccess().getValueAssignment_1_1_1(), "rule__Array__ValueAssignment_1_1_1");
 		}
 	}
 	

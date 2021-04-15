@@ -10,10 +10,12 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import uk.kcl.ac.inf.jsonlang.jSONLanguage.Greeting;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Array;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguageFactory;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguagePackage;
-import uk.kcl.ac.inf.jsonlang.jSONLanguage.Model;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Value;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,14 +30,28 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass modelEClass = null;
+  private EClass jSONLanguageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass greetingEClass = null;
+  private EClass statementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass valueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arrayEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -106,9 +122,9 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
    * @generated
    */
   @Override
-  public EClass getModel()
+  public EClass getjSONLanguage()
   {
-    return modelEClass;
+    return jSONLanguageEClass;
   }
 
   /**
@@ -117,9 +133,9 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
    * @generated
    */
   @Override
-  public EReference getModel_Greetings()
+  public EReference getjSONLanguage_Statement()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)jSONLanguageEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -128,9 +144,9 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
    * @generated
    */
   @Override
-  public EClass getGreeting()
+  public EClass getStatement()
   {
-    return greetingEClass;
+    return statementEClass;
   }
 
   /**
@@ -139,9 +155,53 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
    * @generated
    */
   @Override
-  public EAttribute getGreeting_Name()
+  public EAttribute getStatement_Key()
   {
-    return (EAttribute)greetingEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getStatement_Value()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getValue()
+  {
+    return valueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getArray()
+  {
+    return arrayEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArray_Value()
+  {
+    return (EReference)arrayEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -175,11 +235,17 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__GREETINGS);
+    jSONLanguageEClass = createEClass(JSON_LANGUAGE);
+    createEReference(jSONLanguageEClass, JSON_LANGUAGE__STATEMENT);
 
-    greetingEClass = createEClass(GREETING);
-    createEAttribute(greetingEClass, GREETING__NAME);
+    statementEClass = createEClass(STATEMENT);
+    createEAttribute(statementEClass, STATEMENT__KEY);
+    createEReference(statementEClass, STATEMENT__VALUE);
+
+    valueEClass = createEClass(VALUE);
+
+    arrayEClass = createEClass(ARRAY);
+    createEReference(arrayEClass, ARRAY__VALUE);
   }
 
   /**
@@ -211,13 +277,21 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    jSONLanguageEClass.getESuperTypes().add(this.getValue());
+    arrayEClass.getESuperTypes().add(this.getValue());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Greetings(), this.getGreeting(), null, "greetings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(jSONLanguageEClass, jSONLanguage.class, "jSONLanguage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getjSONLanguage_Statement(), this.getStatement(), null, "statement", null, 0, -1, jSONLanguage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(greetingEClass, Greeting.class, "Greeting", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGreeting_Name(), ecorePackage.getEString(), "name", null, 0, 1, Greeting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStatement_Key(), ecorePackage.getEString(), "key", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_Value(), this.getValue(), null, "value", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(arrayEClass, Array.class, "Array", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArray_Value(), this.getValue(), null, "value", null, 0, -1, Array.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

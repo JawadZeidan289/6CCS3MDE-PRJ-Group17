@@ -58,103 +58,201 @@ public interface JSONLanguagePackage extends EPackage
   JSONLanguagePackage eINSTANCE = uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl.init();
 
   /**
-   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ValueImpl <em>Value</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ModelImpl
-   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getModel()
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ValueImpl
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getValue()
    * @generated
    */
-  int MODEL = 0;
+  int VALUE = 2;
 
   /**
-   * The feature id for the '<em><b>Greetings</b></em>' containment reference list.
+   * The number of structural features of the '<em>Value</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__GREETINGS = 0;
+  int VALUE_FEATURE_COUNT = 0;
 
   /**
-   * The number of structural features of the '<em>Model</em>' class.
+   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.jSONLanguageImpl <em>jSON Language</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.jSONLanguageImpl
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getjSONLanguage()
+   * @generated
+   */
+  int JSON_LANGUAGE = 0;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int JSON_LANGUAGE__STATEMENT = VALUE_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.GreetingImpl <em>Greeting</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.GreetingImpl
-   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getGreeting()
-   * @generated
-   */
-  int GREETING = 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The number of structural features of the '<em>jSON Language</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREETING__NAME = 0;
+  int JSON_LANGUAGE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Greeting</em>' class.
+   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.StatementImpl <em>Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.StatementImpl
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getStatement()
+   * @generated
+   */
+  int STATEMENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Key</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREETING_FEATURE_COUNT = 1;
+  int STATEMENT__KEY = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ArrayImpl <em>Array</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ArrayImpl
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getArray()
+   * @generated
+   */
+  int ARRAY = 3;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY__VALUE = VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Array</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 
   /**
-   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Model <em>Model</em>}'.
+   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage <em>jSON Language</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Model
+   * @return the meta object for class '<em>jSON Language</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage
    * @generated
    */
-  EClass getModel();
+  EClass getjSONLanguage();
 
   /**
-   * Returns the meta object for the containment reference list '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Model#getGreetings <em>Greetings</em>}'.
+   * Returns the meta object for the containment reference list '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage#getStatement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Greetings</em>'.
-   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Model#getGreetings()
-   * @see #getModel()
+   * @return the meta object for the containment reference list '<em>Statement</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage#getStatement()
+   * @see #getjSONLanguage()
    * @generated
    */
-  EReference getModel_Greetings();
+  EReference getjSONLanguage_Statement();
 
   /**
-   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Greeting <em>Greeting</em>}'.
+   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Greeting</em>'.
-   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Greeting
+   * @return the meta object for class '<em>Statement</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement
    * @generated
    */
-  EClass getGreeting();
+  EClass getStatement();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Greeting#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement#getKey <em>Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Greeting#getName()
-   * @see #getGreeting()
+   * @return the meta object for the attribute '<em>Key</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement#getKey()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getGreeting_Name();
+  EAttribute getStatement_Key();
+
+  /**
+   * Returns the meta object for the containment reference '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement#getValue()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_Value();
+
+  /**
+   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Value <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Value</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Value
+   * @generated
+   */
+  EClass getValue();
+
+  /**
+   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Array <em>Array</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Array
+   * @generated
+   */
+  EClass getArray();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Array#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Value</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Array#getValue()
+   * @see #getArray()
+   * @generated
+   */
+  EReference getArray_Value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -180,40 +278,76 @@ public interface JSONLanguagePackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.jSONLanguageImpl <em>jSON Language</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ModelImpl
-     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getModel()
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.jSONLanguageImpl
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getjSONLanguage()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
+    EClass JSON_LANGUAGE = eINSTANCE.getjSONLanguage();
 
     /**
-     * The meta object literal for the '<em><b>Greetings</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__GREETINGS = eINSTANCE.getModel_Greetings();
+    EReference JSON_LANGUAGE__STATEMENT = eINSTANCE.getjSONLanguage_Statement();
 
     /**
-     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.GreetingImpl <em>Greeting</em>}' class.
+     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.StatementImpl <em>Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.GreetingImpl
-     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getGreeting()
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.StatementImpl
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getStatement()
      * @generated
      */
-    EClass GREETING = eINSTANCE.getGreeting();
+    EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREETING__NAME = eINSTANCE.getGreeting_Name();
+    EAttribute STATEMENT__KEY = eINSTANCE.getStatement_Key();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__VALUE = eINSTANCE.getStatement_Value();
+
+    /**
+     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ValueImpl <em>Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ValueImpl
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getValue()
+     * @generated
+     */
+    EClass VALUE = eINSTANCE.getValue();
+
+    /**
+     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ArrayImpl <em>Array</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ArrayImpl
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getArray()
+     * @generated
+     */
+    EClass ARRAY = eINSTANCE.getArray();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY__VALUE = eINSTANCE.getArray_Value();
 
   }
 

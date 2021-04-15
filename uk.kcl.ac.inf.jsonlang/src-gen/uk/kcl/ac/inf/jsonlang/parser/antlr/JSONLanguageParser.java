@@ -27,7 +27,7 @@ public class JSONLanguageParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "jSONLanguage";
 	}
 
 	public JSONLanguageGrammarAccess getGrammarAccess() {

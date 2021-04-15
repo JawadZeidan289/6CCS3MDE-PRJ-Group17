@@ -65,8 +65,10 @@ public class JSONLanguageFactoryImpl extends EFactoryImpl implements JSONLanguag
   {
     switch (eClass.getClassifierID())
     {
-      case JSONLanguagePackage.MODEL: return createModel();
-      case JSONLanguagePackage.GREETING: return createGreeting();
+      case JSONLanguagePackage.JSON_LANGUAGE: return createjSONLanguage();
+      case JSONLanguagePackage.STATEMENT: return createStatement();
+      case JSONLanguagePackage.VALUE: return createValue();
+      case JSONLanguagePackage.ARRAY: return createArray();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -78,10 +80,10 @@ public class JSONLanguageFactoryImpl extends EFactoryImpl implements JSONLanguag
    * @generated
    */
   @Override
-  public Model createModel()
+  public jSONLanguage createjSONLanguage()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    jSONLanguageImpl jSONLanguage = new jSONLanguageImpl();
+    return jSONLanguage;
   }
 
   /**
@@ -90,10 +92,34 @@ public class JSONLanguageFactoryImpl extends EFactoryImpl implements JSONLanguag
    * @generated
    */
   @Override
-  public Greeting createGreeting()
+  public Statement createStatement()
   {
-    GreetingImpl greeting = new GreetingImpl();
-    return greeting;
+    StatementImpl statement = new StatementImpl();
+    return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Value createValue()
+  {
+    ValueImpl value = new ValueImpl();
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Array createArray()
+  {
+    ArrayImpl array = new ArrayImpl();
+    return array;
   }
 
   /**

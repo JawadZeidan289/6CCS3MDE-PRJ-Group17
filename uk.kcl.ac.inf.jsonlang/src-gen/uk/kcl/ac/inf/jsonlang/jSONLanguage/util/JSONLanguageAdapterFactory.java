@@ -76,14 +76,24 @@ public class JSONLanguageAdapterFactory extends AdapterFactoryImpl
     new JSONLanguageSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter casejSONLanguage(jSONLanguage object)
       {
-        return createModelAdapter();
+        return createjSONLanguageAdapter();
       }
       @Override
-      public Adapter caseGreeting(Greeting object)
+      public Adapter caseStatement(Statement object)
       {
-        return createGreetingAdapter();
+        return createStatementAdapter();
+      }
+      @Override
+      public Adapter caseValue(Value object)
+      {
+        return createValueAdapter();
+      }
+      @Override
+      public Adapter caseArray(Array object)
+      {
+        return createArrayAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -108,31 +118,61 @@ public class JSONLanguageAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage <em>jSON Language</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Model
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createjSONLanguageAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Greeting <em>Greeting</em>}'.
+   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Greeting
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement
    * @generated
    */
-  public Adapter createGreetingAdapter()
+  public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Value <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Value
+   * @generated
+   */
+  public Adapter createValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Array <em>Array</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Array
+   * @generated
+   */
+  public Adapter createArrayAdapter()
   {
     return null;
   }

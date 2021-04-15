@@ -73,17 +73,33 @@ public class JSONLanguageSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case JSONLanguagePackage.MODEL:
+      case JSONLanguagePackage.JSON_LANGUAGE:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        jSONLanguage jSONLanguage = (jSONLanguage)theEObject;
+        T result = casejSONLanguage(jSONLanguage);
+        if (result == null) result = caseValue(jSONLanguage);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case JSONLanguagePackage.GREETING:
+      case JSONLanguagePackage.STATEMENT:
       {
-        Greeting greeting = (Greeting)theEObject;
-        T result = caseGreeting(greeting);
+        Statement statement = (Statement)theEObject;
+        T result = caseStatement(statement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JSONLanguagePackage.VALUE:
+      {
+        Value value = (Value)theEObject;
+        T result = caseValue(value);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JSONLanguagePackage.ARRAY:
+      {
+        Array array = (Array)theEObject;
+        T result = caseArray(array);
+        if (result == null) result = caseValue(array);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -92,33 +108,65 @@ public class JSONLanguageSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>jSON Language</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>jSON Language</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T casejSONLanguage(jSONLanguage object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGreeting(Greeting object)
+  public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseValue(Value object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArray(Array object)
   {
     return null;
   }

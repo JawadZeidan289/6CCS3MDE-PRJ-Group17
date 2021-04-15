@@ -12,46 +12,44 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import uk.kcl.ac.inf.jsonlang.jSONLanguage.Greeting;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Array;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguagePackage;
-import uk.kcl.ac.inf.jsonlang.jSONLanguage.Model;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Value;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Array</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ModelImpl#getGreetings <em>Greetings</em>}</li>
+ *   <li>{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ArrayImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class ArrayImpl extends ValueImpl implements Array
 {
   /**
-   * The cached value of the '{@link #getGreetings() <em>Greetings</em>}' containment reference list.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGreetings()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected EList<Greeting> greetings;
+  protected EList<Value> value;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected ArrayImpl()
   {
     super();
   }
@@ -64,7 +62,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return JSONLanguagePackage.Literals.MODEL;
+    return JSONLanguagePackage.Literals.ARRAY;
   }
 
   /**
@@ -73,13 +71,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<Greeting> getGreetings()
+  public EList<Value> getValue()
   {
-    if (greetings == null)
+    if (value == null)
     {
-      greetings = new EObjectContainmentEList<Greeting>(Greeting.class, this, JSONLanguagePackage.MODEL__GREETINGS);
+      value = new EObjectContainmentEList<Value>(Value.class, this, JSONLanguagePackage.ARRAY__VALUE);
     }
-    return greetings;
+    return value;
   }
 
   /**
@@ -92,8 +90,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case JSONLanguagePackage.MODEL__GREETINGS:
-        return ((InternalEList<?>)getGreetings()).basicRemove(otherEnd, msgs);
+      case JSONLanguagePackage.ARRAY__VALUE:
+        return ((InternalEList<?>)getValue()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +106,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case JSONLanguagePackage.MODEL__GREETINGS:
-        return getGreetings();
+      case JSONLanguagePackage.ARRAY__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +123,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case JSONLanguagePackage.MODEL__GREETINGS:
-        getGreetings().clear();
-        getGreetings().addAll((Collection<? extends Greeting>)newValue);
+      case JSONLanguagePackage.ARRAY__VALUE:
+        getValue().clear();
+        getValue().addAll((Collection<? extends Value>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +141,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case JSONLanguagePackage.MODEL__GREETINGS:
-        getGreetings().clear();
+      case JSONLanguagePackage.ARRAY__VALUE:
+        getValue().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,10 +158,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case JSONLanguagePackage.MODEL__GREETINGS:
-        return greetings != null && !greetings.isEmpty();
+      case JSONLanguagePackage.ARRAY__VALUE:
+        return value != null && !value.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //ArrayImpl

@@ -24,22 +24,40 @@ public interface JSONLanguageFactory extends EFactory
   JSONLanguageFactory eINSTANCE = uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguageFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>jSON Language</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>jSON Language</em>'.
    * @generated
    */
-  Model createModel();
+  jSONLanguage createjSONLanguage();
 
   /**
-   * Returns a new object of class '<em>Greeting</em>'.
+   * Returns a new object of class '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Greeting</em>'.
+   * @return a new object of class '<em>Statement</em>'.
    * @generated
    */
-  Greeting createGreeting();
+  Statement createStatement();
+
+  /**
+   * Returns a new object of class '<em>Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Value</em>'.
+   * @generated
+   */
+  Value createValue();
+
+  /**
+   * Returns a new object of class '<em>Array</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array</em>'.
+   * @generated
+   */
+  Array createArray();
 
   /**
    * Returns the package supported by this factory.

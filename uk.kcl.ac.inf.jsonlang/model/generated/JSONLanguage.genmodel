@@ -6,11 +6,16 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="JSONLanguage" basePackage="uk.kcl.ac.inf.jsonlang" disposableProviderFactory="true"
       fileExtensions="json" ecorePackage="JSONLanguage.ecore#/">
-    <genClasses ecoreClass="JSONLanguage.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JSONLanguage.ecore#//Model/greetings"/>
+    <genClasses ecoreClass="JSONLanguage.ecore#//jSONLanguage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JSONLanguage.ecore#//jSONLanguage/statement"/>
     </genClasses>
-    <genClasses ecoreClass="JSONLanguage.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JSONLanguage.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="JSONLanguage.ecore#//Statement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JSONLanguage.ecore#//Statement/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JSONLanguage.ecore#//Statement/value"/>
+    </genClasses>
+    <genClasses ecoreClass="JSONLanguage.ecore#//Value"/>
+    <genClasses ecoreClass="JSONLanguage.ecore#//Array">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JSONLanguage.ecore#//Array/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
