@@ -3,7 +3,15 @@
  */
 package uk.kcl.ac.inf.jsonlang.ui.quickfix;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.ui.editor.model.edit.IMultiModification;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
+import org.eclipse.xtext.ui.editor.quickfix.Fix;
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
+import org.eclipse.xtext.validation.Issue;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement;
+import uk.kcl.ac.inf.jsonlang.validation.JSONLanguageValidator;
 
 /**
  * Custom quickfixes.
@@ -12,4 +20,33 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
  */
 @SuppressWarnings("all")
 public class JSONLanguageQuickfixProvider extends DefaultQuickfixProvider {
+  @Fix(JSONLanguageValidator.KEY_CONTAINS_NUMBER_AT_START)
+  public void numberAtStartOfKey(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IMultiModification<EObject> _function = (EObject element) -> {
+      final Statement variableDeclaration = ((Statement) element);
+      String _key = variableDeclaration.getKey();
+      final StringBuilder sb = new StringBuilder(_key);
+      sb.deleteCharAt(0);
+      variableDeclaration.setKey(sb.toString());
+    };
+    acceptor.<EObject>acceptMulti(issue, "Remove number", "Remove the number at the start of the key variable", null, _function);
+  }
+  
+  @Fix(JSONLanguageValidator.KEY_STARTS_WITH_CAPITAL)
+  public void capitalAtStartOfKey(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IMultiModification<EObject> _function = (EObject element) -> {
+      final Statement variableDeclaration = ((Statement) element);
+      variableDeclaration.setKey(StringExtensions.toFirstLower(variableDeclaration.getKey()));
+    };
+    acceptor.<EObject>acceptMulti(issue, "De-capitalise the start", "Replace the capital letter at the start with the lower-case alternative", null, _function);
+  }
+  
+  @Fix(JSONLanguageValidator.KEY_CONTAINS_SPACES)
+  public void spacesInKey(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IMultiModification<EObject> _function = (EObject element) -> {
+      final Statement variableDeclaration = ((Statement) element);
+      variableDeclaration.setKey(variableDeclaration.getKey().replaceAll("\\s+", ""));
+    };
+    acceptor.<EObject>acceptMulti(issue, "Remove white space", "Remove the white spaces inside the key variable", null, _function);
+  }
 }
