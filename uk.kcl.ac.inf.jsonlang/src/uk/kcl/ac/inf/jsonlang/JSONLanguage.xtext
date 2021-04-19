@@ -14,16 +14,28 @@ Statement:
 	key=STRING ':' value=Value;
 	
 Value:
-	jSONLanguage | Array | STRING | Number | Boolean | Null;
+	jSONLanguage | Array | Text | Number | Boolean | Null;
 
 Array:
 	'[' ((value+=Value)(',' value+=Value)*)? ']';
+	
+Text:
+	val = STRING;
 
 Boolean:
-  'true' | 'false';
+  val = 'true' | 'false';
 
 Null:
-  'null';
+  val = 'null';
 
-Number returns ecore::EFloat hidden():
+Number:
+	IntNumber | ComplexNumber;
+	
+IntNumber:
+	val = INT;
+
+ComplexNumber:
+	val = COMPLEX;
+
+COMPLEX returns ecore::EFloat hidden():
 	'-'? INT? '.'? INT (('E'|'e') '-'? '+'? INT)?;

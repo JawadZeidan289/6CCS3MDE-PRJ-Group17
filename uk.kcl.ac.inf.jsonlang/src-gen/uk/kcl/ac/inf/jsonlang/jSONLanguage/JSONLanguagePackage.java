@@ -169,6 +169,165 @@ public interface JSONLanguagePackage extends EPackage
    */
   int ARRAY_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
+  /**
+   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.TextImpl <em>Text</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.TextImpl
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getText()
+   * @generated
+   */
+  int TEXT = 4;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT__VAL = VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Text</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.BooleanImpl <em>Boolean</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.BooleanImpl
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getBoolean()
+   * @generated
+   */
+  int BOOLEAN = 5;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN__VAL = VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Boolean</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.NullImpl <em>Null</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.NullImpl
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getNull()
+   * @generated
+   */
+  int NULL = 6;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NULL__VAL = VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Null</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NULL_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.NumberImpl <em>Number</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.NumberImpl
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getNumber()
+   * @generated
+   */
+  int NUMBER = 7;
+
+  /**
+   * The number of structural features of the '<em>Number</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.IntNumberImpl <em>Int Number</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.IntNumberImpl
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getIntNumber()
+   * @generated
+   */
+  int INT_NUMBER = 8;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_NUMBER__VAL = NUMBER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Int Number</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_NUMBER_FEATURE_COUNT = NUMBER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ComplexNumberImpl <em>Complex Number</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ComplexNumberImpl
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getComplexNumber()
+   * @generated
+   */
+  int COMPLEX_NUMBER = 9;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEX_NUMBER__VAL = NUMBER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Complex Number</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEX_NUMBER_FEATURE_COUNT = NUMBER_FEATURE_COUNT + 1;
+
 
   /**
    * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage <em>jSON Language</em>}'.
@@ -253,6 +412,121 @@ public interface JSONLanguagePackage extends EPackage
    * @generated
    */
   EReference getArray_Value();
+
+  /**
+   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Text <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Text</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Text
+   * @generated
+   */
+  EClass getText();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Text#getVal <em>Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Val</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Text#getVal()
+   * @see #getText()
+   * @generated
+   */
+  EAttribute getText_Val();
+
+  /**
+   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean <em>Boolean</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean
+   * @generated
+   */
+  EClass getBoolean();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean#getVal <em>Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Val</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean#getVal()
+   * @see #getBoolean()
+   * @generated
+   */
+  EAttribute getBoolean_Val();
+
+  /**
+   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Null <em>Null</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Null</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Null
+   * @generated
+   */
+  EClass getNull();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Null#getVal <em>Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Val</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Null#getVal()
+   * @see #getNull()
+   * @generated
+   */
+  EAttribute getNull_Val();
+
+  /**
+   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Number <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Number</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Number
+   * @generated
+   */
+  EClass getNumber();
+
+  /**
+   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber <em>Int Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Int Number</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber
+   * @generated
+   */
+  EClass getIntNumber();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber#getVal <em>Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Val</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber#getVal()
+   * @see #getIntNumber()
+   * @generated
+   */
+  EAttribute getIntNumber_Val();
+
+  /**
+   * Returns the meta object for class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber <em>Complex Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Complex Number</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber
+   * @generated
+   */
+  EClass getComplexNumber();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber#getVal <em>Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Val</em>'.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber#getVal()
+   * @see #getComplexNumber()
+   * @generated
+   */
+  EAttribute getComplexNumber_Val();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -348,6 +622,106 @@ public interface JSONLanguagePackage extends EPackage
      * @generated
      */
     EReference ARRAY__VALUE = eINSTANCE.getArray_Value();
+
+    /**
+     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.TextImpl <em>Text</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.TextImpl
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getText()
+     * @generated
+     */
+    EClass TEXT = eINSTANCE.getText();
+
+    /**
+     * The meta object literal for the '<em><b>Val</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TEXT__VAL = eINSTANCE.getText_Val();
+
+    /**
+     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.BooleanImpl <em>Boolean</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.BooleanImpl
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getBoolean()
+     * @generated
+     */
+    EClass BOOLEAN = eINSTANCE.getBoolean();
+
+    /**
+     * The meta object literal for the '<em><b>Val</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOLEAN__VAL = eINSTANCE.getBoolean_Val();
+
+    /**
+     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.NullImpl <em>Null</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.NullImpl
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getNull()
+     * @generated
+     */
+    EClass NULL = eINSTANCE.getNull();
+
+    /**
+     * The meta object literal for the '<em><b>Val</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NULL__VAL = eINSTANCE.getNull_Val();
+
+    /**
+     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.NumberImpl <em>Number</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.NumberImpl
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getNumber()
+     * @generated
+     */
+    EClass NUMBER = eINSTANCE.getNumber();
+
+    /**
+     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.IntNumberImpl <em>Int Number</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.IntNumberImpl
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getIntNumber()
+     * @generated
+     */
+    EClass INT_NUMBER = eINSTANCE.getIntNumber();
+
+    /**
+     * The meta object literal for the '<em><b>Val</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INT_NUMBER__VAL = eINSTANCE.getIntNumber_Val();
+
+    /**
+     * The meta object literal for the '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ComplexNumberImpl <em>Complex Number</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.ComplexNumberImpl
+     * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.impl.JSONLanguagePackageImpl#getComplexNumber()
+     * @generated
+     */
+    EClass COMPLEX_NUMBER = eINSTANCE.getComplexNumber();
+
+    /**
+     * The meta object literal for the '<em><b>Val</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPLEX_NUMBER__VAL = eINSTANCE.getComplexNumber_Val();
 
   }
 

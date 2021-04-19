@@ -15,8 +15,12 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.Array;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguagePackage;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Null;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Text;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage;
 import uk.kcl.ac.inf.jsonlang.services.JSONLanguageGrammarAccess;
 
@@ -37,8 +41,23 @@ public class JSONLanguageSemanticSequencer extends AbstractDelegatingSemanticSeq
 			case JSONLanguagePackage.ARRAY:
 				sequence_Array(context, (Array) semanticObject); 
 				return; 
+			case JSONLanguagePackage.BOOLEAN:
+				sequence_Boolean(context, (uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean) semanticObject); 
+				return; 
+			case JSONLanguagePackage.COMPLEX_NUMBER:
+				sequence_ComplexNumber(context, (ComplexNumber) semanticObject); 
+				return; 
+			case JSONLanguagePackage.INT_NUMBER:
+				sequence_IntNumber(context, (IntNumber) semanticObject); 
+				return; 
+			case JSONLanguagePackage.NULL:
+				sequence_Null(context, (Null) semanticObject); 
+				return; 
 			case JSONLanguagePackage.STATEMENT:
 				sequence_Statement(context, (Statement) semanticObject); 
+				return; 
+			case JSONLanguagePackage.TEXT:
+				sequence_Text(context, (Text) semanticObject); 
 				return; 
 			case JSONLanguagePackage.JSON_LANGUAGE:
 				sequence_jSONLanguage(context, (jSONLanguage) semanticObject); 
@@ -63,6 +82,84 @@ public class JSONLanguageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Contexts:
+	 *     Value returns Boolean
+	 *     Boolean returns Boolean
+	 *
+	 * Constraint:
+	 *     val='true'
+	 */
+	protected void sequence_Boolean(ISerializationContext context, uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JSONLanguagePackage.Literals.BOOLEAN__VAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JSONLanguagePackage.Literals.BOOLEAN__VAL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBooleanAccess().getValTrueKeyword_0_0(), semanticObject.getVal());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Value returns ComplexNumber
+	 *     Number returns ComplexNumber
+	 *     ComplexNumber returns ComplexNumber
+	 *
+	 * Constraint:
+	 *     val=COMPLEX
+	 */
+	protected void sequence_ComplexNumber(ISerializationContext context, ComplexNumber semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JSONLanguagePackage.Literals.COMPLEX_NUMBER__VAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JSONLanguagePackage.Literals.COMPLEX_NUMBER__VAL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getComplexNumberAccess().getValCOMPLEXParserRuleCall_0(), semanticObject.getVal());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Value returns IntNumber
+	 *     Number returns IntNumber
+	 *     IntNumber returns IntNumber
+	 *
+	 * Constraint:
+	 *     val=INT
+	 */
+	protected void sequence_IntNumber(ISerializationContext context, IntNumber semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JSONLanguagePackage.Literals.INT_NUMBER__VAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JSONLanguagePackage.Literals.INT_NUMBER__VAL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIntNumberAccess().getValINTTerminalRuleCall_0(), semanticObject.getVal());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Value returns Null
+	 *     Null returns Null
+	 *
+	 * Constraint:
+	 *     val='null'
+	 */
+	protected void sequence_Null(ISerializationContext context, Null semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JSONLanguagePackage.Literals.NULL__VAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JSONLanguagePackage.Literals.NULL__VAL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNullAccess().getValNullKeyword_0(), semanticObject.getVal());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Statement returns Statement
 	 *
 	 * Constraint:
@@ -78,6 +175,25 @@ public class JSONLanguageSemanticSequencer extends AbstractDelegatingSemanticSeq
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getStatementAccess().getKeySTRINGTerminalRuleCall_0_0(), semanticObject.getKey());
 		feeder.accept(grammarAccess.getStatementAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Value returns Text
+	 *     Text returns Text
+	 *
+	 * Constraint:
+	 *     val=STRING
+	 */
+	protected void sequence_Text(ISerializationContext context, Text semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JSONLanguagePackage.Literals.TEXT__VAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JSONLanguagePackage.Literals.TEXT__VAL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTextAccess().getValSTRINGTerminalRuleCall_0(), semanticObject.getVal());
 		feeder.finish();
 	}
 	

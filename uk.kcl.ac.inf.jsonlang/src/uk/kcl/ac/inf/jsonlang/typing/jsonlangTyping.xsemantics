@@ -1,0 +1,41 @@
+import uk.kcl.ac.inf.jsonlang.validation.AbstractJSONLanguageValidator
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage
+import org.eclipse.emf.ecore.EObject
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Null
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Text
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Array
+
+system uk.kcl.ac.inf.jsonlang.typing.jsonlangTypingSystem
+
+validatorExtends AbstractJSONLanguageValidator
+
+
+judgments {
+	type |- EObject ex : output JsonLangType
+		cached
+		error "Cannot type " + stringRep(ex)
+}
+
+axiom IntLiteral
+	G |- IntNumber ex : JsonLangType.INT
+	
+axiom ComplexLiteral
+	G |- ComplexNumber ex : JsonLangType.COMPLEX
+	
+axiom BoolLiteral
+G |- Boolean ex : JsonLangType.BOOL
+
+axiom NullLiteral
+G |- Null ex : JsonLangType.NULL
+
+axiom StringLiteral
+G |- Text ex : JsonLangType.STRING
+
+axiom ArrayObject
+G |- Array ex : JsonLangType.ARRAY
+
+axiom JSONLangObject
+G |- jSONLanguage ex : JsonLangType.JSONLANGUAGE

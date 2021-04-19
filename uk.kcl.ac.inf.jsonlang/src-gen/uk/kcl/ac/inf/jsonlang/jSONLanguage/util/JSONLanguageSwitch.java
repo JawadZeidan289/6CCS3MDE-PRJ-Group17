@@ -8,7 +8,15 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import uk.kcl.ac.inf.jsonlang.jSONLanguage.*;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Array;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguagePackage;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Null;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Text;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Value;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,6 +111,56 @@ public class JSONLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case JSONLanguagePackage.TEXT:
+      {
+        Text text = (Text)theEObject;
+        T result = caseText(text);
+        if (result == null) result = caseValue(text);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JSONLanguagePackage.BOOLEAN:
+      {
+        uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean boolean_ = (uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean)theEObject;
+        T result = caseBoolean(boolean_);
+        if (result == null) result = caseValue(boolean_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JSONLanguagePackage.NULL:
+      {
+        Null null_ = (Null)theEObject;
+        T result = caseNull(null_);
+        if (result == null) result = caseValue(null_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JSONLanguagePackage.NUMBER:
+      {
+        uk.kcl.ac.inf.jsonlang.jSONLanguage.Number number = (uk.kcl.ac.inf.jsonlang.jSONLanguage.Number)theEObject;
+        T result = caseNumber(number);
+        if (result == null) result = caseValue(number);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JSONLanguagePackage.INT_NUMBER:
+      {
+        IntNumber intNumber = (IntNumber)theEObject;
+        T result = caseIntNumber(intNumber);
+        if (result == null) result = caseNumber(intNumber);
+        if (result == null) result = caseValue(intNumber);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JSONLanguagePackage.COMPLEX_NUMBER:
+      {
+        ComplexNumber complexNumber = (ComplexNumber)theEObject;
+        T result = caseComplexNumber(complexNumber);
+        if (result == null) result = caseNumber(complexNumber);
+        if (result == null) result = caseValue(complexNumber);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -167,6 +225,102 @@ public class JSONLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseArray(Array object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Text</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseText(Text object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Boolean</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Boolean</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBoolean(uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Null</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Null</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNull(Null object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Number</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Number</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNumber(uk.kcl.ac.inf.jsonlang.jSONLanguage.Number object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Int Number</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Int Number</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntNumber(IntNumber object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Complex Number</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Complex Number</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComplexNumber(ComplexNumber object)
   {
     return null;
   }

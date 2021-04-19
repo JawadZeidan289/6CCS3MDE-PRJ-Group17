@@ -22,68 +22,19 @@ import uk.kcl.ac.inf.jsonlang.services.JSONLanguageGrammarAccess;
 public class JSONLanguageSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected JSONLanguageGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Array_Value_jSONLanguage_BooleanParserRuleCall_4_or_NullParserRuleCall_5_or_NumberParserRuleCall_3_or_STRINGTerminalRuleCall_2_or___LeftCurlyBracketKeyword_0_RightCurlyBracketKeyword_2___or___LeftSquareBracketKeyword_0_RightSquareBracketKeyword_2__;
+	protected AbstractElementAlias match_Array_Boolean_jSONLanguage_FalseKeyword_1_or___LeftCurlyBracketKeyword_0_RightCurlyBracketKeyword_2___or___LeftSquareBracketKeyword_0_RightSquareBracketKeyword_2__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (JSONLanguageGrammarAccess) access;
-		match_Array_Value_jSONLanguage_BooleanParserRuleCall_4_or_NullParserRuleCall_5_or_NumberParserRuleCall_3_or_STRINGTerminalRuleCall_2_or___LeftCurlyBracketKeyword_0_RightCurlyBracketKeyword_2___or___LeftSquareBracketKeyword_0_RightSquareBracketKeyword_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getArrayAccess().getLeftSquareBracketKeyword_0()), new TokenAlias(false, false, grammarAccess.getArrayAccess().getRightSquareBracketKeyword_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getJSONLanguageAccess().getLeftCurlyBracketKeyword_0()), new TokenAlias(false, false, grammarAccess.getJSONLanguageAccess().getRightCurlyBracketKeyword_2())), new TokenAlias(false, false, grammarAccess.getValueAccess().getBooleanParserRuleCall_4()), new TokenAlias(false, false, grammarAccess.getValueAccess().getNullParserRuleCall_5()), new TokenAlias(false, false, grammarAccess.getValueAccess().getNumberParserRuleCall_3()), new TokenAlias(false, false, grammarAccess.getValueAccess().getSTRINGTerminalRuleCall_2()));
+		match_Array_Boolean_jSONLanguage_FalseKeyword_1_or___LeftCurlyBracketKeyword_0_RightCurlyBracketKeyword_2___or___LeftSquareBracketKeyword_0_RightSquareBracketKeyword_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getArrayAccess().getLeftSquareBracketKeyword_0()), new TokenAlias(false, false, grammarAccess.getArrayAccess().getRightSquareBracketKeyword_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getJSONLanguageAccess().getLeftCurlyBracketKeyword_0()), new TokenAlias(false, false, grammarAccess.getJSONLanguageAccess().getRightCurlyBracketKeyword_2())), new TokenAlias(false, false, grammarAccess.getBooleanAccess().getFalseKeyword_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getBooleanRule())
-			return getBooleanToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getNullRule())
-			return getNullToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getNumberRule())
-			return getNumberToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSTRINGRule())
-			return getSTRINGToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * Boolean:
-	 *   'true' | 'false';
-	 */
-	protected String getBooleanToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "true";
-	}
-	
-	/**
-	 * Null:
-	 *   'null';
-	 */
-	protected String getNullToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "null";
-	}
-	
-	/**
-	 * Number returns ecore::EFloat hidden():
-	 * 	'-'? INT? '.'? INT (('E'|'e') '-'? '+'? INT)?;
-	 */
-	protected String getNumberToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
-	
-	/**
-	 * terminal STRING:
-	 * 			'"' ( '\\' .  | !('\\'|'"') )* '"' |
-	 * 			"'" ( '\\' .  | !('\\'|"'") )* "'"
-	 * 		;
-	 */
-	protected String getSTRINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\"\"";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -91,27 +42,20 @@ public class JSONLanguageSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Array_Value_jSONLanguage_BooleanParserRuleCall_4_or_NullParserRuleCall_5_or_NumberParserRuleCall_3_or_STRINGTerminalRuleCall_2_or___LeftCurlyBracketKeyword_0_RightCurlyBracketKeyword_2___or___LeftSquareBracketKeyword_0_RightSquareBracketKeyword_2__.equals(syntax))
-				emit_Array_Value_jSONLanguage_BooleanParserRuleCall_4_or_NullParserRuleCall_5_or_NumberParserRuleCall_3_or_STRINGTerminalRuleCall_2_or___LeftCurlyBracketKeyword_0_RightCurlyBracketKeyword_2___or___LeftSquareBracketKeyword_0_RightSquareBracketKeyword_2__(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Array_Boolean_jSONLanguage_FalseKeyword_1_or___LeftCurlyBracketKeyword_0_RightCurlyBracketKeyword_2___or___LeftSquareBracketKeyword_0_RightSquareBracketKeyword_2__.equals(syntax))
+				emit_Array_Boolean_jSONLanguage_FalseKeyword_1_or___LeftCurlyBracketKeyword_0_RightCurlyBracketKeyword_2___or___LeftSquareBracketKeyword_0_RightSquareBracketKeyword_2__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     (
-	  *         ('{' '}') | 
-	  *         STRING | 
-	  *         Number | 
-	  *         Boolean | 
-	  *         Null | 
-	  *         ('[' ']')
-	  *     )
+	 *     ('{' '}') | ('[' ']') | 'false'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
 	 */
-	protected void emit_Array_Value_jSONLanguage_BooleanParserRuleCall_4_or_NullParserRuleCall_5_or_NumberParserRuleCall_3_or_STRINGTerminalRuleCall_2_or___LeftCurlyBracketKeyword_0_RightCurlyBracketKeyword_2___or___LeftSquareBracketKeyword_0_RightSquareBracketKeyword_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Array_Boolean_jSONLanguage_FalseKeyword_1_or___LeftCurlyBracketKeyword_0_RightCurlyBracketKeyword_2___or___LeftSquareBracketKeyword_0_RightSquareBracketKeyword_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -17,5 +17,21 @@
     <genClasses ecoreClass="JSONLanguage.ecore#//Array">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JSONLanguage.ecore#//Array/value"/>
     </genClasses>
+    <genClasses ecoreClass="JSONLanguage.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JSONLanguage.ecore#//Text/val"/>
+    </genClasses>
+    <genClasses ecoreClass="JSONLanguage.ecore#//Boolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JSONLanguage.ecore#//Boolean/val"/>
+    </genClasses>
+    <genClasses ecoreClass="JSONLanguage.ecore#//Null">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JSONLanguage.ecore#//Null/val"/>
+    </genClasses>
+    <genClasses ecoreClass="JSONLanguage.ecore#//Number"/>
+    <genClasses ecoreClass="JSONLanguage.ecore#//IntNumber">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JSONLanguage.ecore#//IntNumber/val"/>
+    </genClasses>
+    <genClasses ecoreClass="JSONLanguage.ecore#//ComplexNumber">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JSONLanguage.ecore#//ComplexNumber/val"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

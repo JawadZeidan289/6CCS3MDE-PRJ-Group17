@@ -10,7 +10,15 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import uk.kcl.ac.inf.jsonlang.jSONLanguage.*;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Array;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguagePackage;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Null;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Text;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Value;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,6 +104,36 @@ public class JSONLanguageAdapterFactory extends AdapterFactoryImpl
         return createArrayAdapter();
       }
       @Override
+      public Adapter caseText(Text object)
+      {
+        return createTextAdapter();
+      }
+      @Override
+      public Adapter caseBoolean(uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean object)
+      {
+        return createBooleanAdapter();
+      }
+      @Override
+      public Adapter caseNull(Null object)
+      {
+        return createNullAdapter();
+      }
+      @Override
+      public Adapter caseNumber(uk.kcl.ac.inf.jsonlang.jSONLanguage.Number object)
+      {
+        return createNumberAdapter();
+      }
+      @Override
+      public Adapter caseIntNumber(IntNumber object)
+      {
+        return createIntNumberAdapter();
+      }
+      @Override
+      public Adapter caseComplexNumber(ComplexNumber object)
+      {
+        return createComplexNumberAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -173,6 +211,96 @@ public class JSONLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createArrayAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Text <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Text
+   * @generated
+   */
+  public Adapter createTextAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean <em>Boolean</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean
+   * @generated
+   */
+  public Adapter createBooleanAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Null <em>Null</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Null
+   * @generated
+   */
+  public Adapter createNullAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.Number <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.Number
+   * @generated
+   */
+  public Adapter createNumberAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber <em>Int Number</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber
+   * @generated
+   */
+  public Adapter createIntNumberAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber <em>Complex Number</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber
+   * @generated
+   */
+  public Adapter createComplexNumberAdapter()
   {
     return null;
   }

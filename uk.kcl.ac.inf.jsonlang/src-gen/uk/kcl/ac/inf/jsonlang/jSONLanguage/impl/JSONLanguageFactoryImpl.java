@@ -11,7 +11,16 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import uk.kcl.ac.inf.jsonlang.jSONLanguage.*;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Array;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguageFactory;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguagePackage;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Null;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Text;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Value;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +78,12 @@ public class JSONLanguageFactoryImpl extends EFactoryImpl implements JSONLanguag
       case JSONLanguagePackage.STATEMENT: return createStatement();
       case JSONLanguagePackage.VALUE: return createValue();
       case JSONLanguagePackage.ARRAY: return createArray();
+      case JSONLanguagePackage.TEXT: return createText();
+      case JSONLanguagePackage.BOOLEAN: return createBoolean();
+      case JSONLanguagePackage.NULL: return createNull();
+      case JSONLanguagePackage.NUMBER: return createNumber();
+      case JSONLanguagePackage.INT_NUMBER: return createIntNumber();
+      case JSONLanguagePackage.COMPLEX_NUMBER: return createComplexNumber();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -120,6 +135,78 @@ public class JSONLanguageFactoryImpl extends EFactoryImpl implements JSONLanguag
   {
     ArrayImpl array = new ArrayImpl();
     return array;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Text createText()
+  {
+    TextImpl text = new TextImpl();
+    return text;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean createBoolean()
+  {
+    BooleanImpl boolean_ = new BooleanImpl();
+    return boolean_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Null createNull()
+  {
+    NullImpl null_ = new NullImpl();
+    return null_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public uk.kcl.ac.inf.jsonlang.jSONLanguage.Number createNumber()
+  {
+    NumberImpl number = new NumberImpl();
+    return number;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IntNumber createIntNumber()
+  {
+    IntNumberImpl intNumber = new IntNumberImpl();
+    return intNumber;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ComplexNumber createComplexNumber()
+  {
+    ComplexNumberImpl complexNumber = new ComplexNumberImpl();
+    return complexNumber;
   }
 
   /**

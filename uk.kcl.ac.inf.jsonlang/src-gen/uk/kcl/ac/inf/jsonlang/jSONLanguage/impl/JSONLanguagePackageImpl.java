@@ -11,9 +11,13 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.Array;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.ComplexNumber;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.IntNumber;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguageFactory;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguagePackage;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Null;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.Text;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.Value;
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage;
 
@@ -52,6 +56,48 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
    * @generated
    */
   private EClass arrayEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass textEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nullEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass numberEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass intNumberEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass complexNumberEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -210,6 +256,127 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
    * @generated
    */
   @Override
+  public EClass getText()
+  {
+    return textEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getText_Val()
+  {
+    return (EAttribute)textEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBoolean()
+  {
+    return booleanEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBoolean_Val()
+  {
+    return (EAttribute)booleanEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNull()
+  {
+    return nullEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNull_Val()
+  {
+    return (EAttribute)nullEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNumber()
+  {
+    return numberEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIntNumber()
+  {
+    return intNumberEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getIntNumber_Val()
+  {
+    return (EAttribute)intNumberEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getComplexNumber()
+  {
+    return complexNumberEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getComplexNumber_Val()
+  {
+    return (EAttribute)complexNumberEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public JSONLanguageFactory getJSONLanguageFactory()
   {
     return (JSONLanguageFactory)getEFactoryInstance();
@@ -246,6 +413,23 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
 
     arrayEClass = createEClass(ARRAY);
     createEReference(arrayEClass, ARRAY__VALUE);
+
+    textEClass = createEClass(TEXT);
+    createEAttribute(textEClass, TEXT__VAL);
+
+    booleanEClass = createEClass(BOOLEAN);
+    createEAttribute(booleanEClass, BOOLEAN__VAL);
+
+    nullEClass = createEClass(NULL);
+    createEAttribute(nullEClass, NULL__VAL);
+
+    numberEClass = createEClass(NUMBER);
+
+    intNumberEClass = createEClass(INT_NUMBER);
+    createEAttribute(intNumberEClass, INT_NUMBER__VAL);
+
+    complexNumberEClass = createEClass(COMPLEX_NUMBER);
+    createEAttribute(complexNumberEClass, COMPLEX_NUMBER__VAL);
   }
 
   /**
@@ -279,6 +463,12 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
     // Add supertypes to classes
     jSONLanguageEClass.getESuperTypes().add(this.getValue());
     arrayEClass.getESuperTypes().add(this.getValue());
+    textEClass.getESuperTypes().add(this.getValue());
+    booleanEClass.getESuperTypes().add(this.getValue());
+    nullEClass.getESuperTypes().add(this.getValue());
+    numberEClass.getESuperTypes().add(this.getValue());
+    intNumberEClass.getESuperTypes().add(this.getNumber());
+    complexNumberEClass.getESuperTypes().add(this.getNumber());
 
     // Initialize classes and features; add operations and parameters
     initEClass(jSONLanguageEClass, jSONLanguage.class, "jSONLanguage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -292,6 +482,23 @@ public class JSONLanguagePackageImpl extends EPackageImpl implements JSONLanguag
 
     initEClass(arrayEClass, Array.class, "Array", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArray_Value(), this.getValue(), null, "value", null, 0, -1, Array.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getText_Val(), ecorePackage.getEString(), "val", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanEClass, uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean.class, "Boolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBoolean_Val(), ecorePackage.getEString(), "val", null, 0, 1, uk.kcl.ac.inf.jsonlang.jSONLanguage.Boolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nullEClass, Null.class, "Null", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNull_Val(), ecorePackage.getEString(), "val", null, 0, 1, Null.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(numberEClass, uk.kcl.ac.inf.jsonlang.jSONLanguage.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(intNumberEClass, IntNumber.class, "IntNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIntNumber_Val(), ecorePackage.getEInt(), "val", null, 0, 1, IntNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(complexNumberEClass, ComplexNumber.class, "ComplexNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getComplexNumber_Val(), ecorePackage.getEFloat(), "val", null, 0, 1, ComplexNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

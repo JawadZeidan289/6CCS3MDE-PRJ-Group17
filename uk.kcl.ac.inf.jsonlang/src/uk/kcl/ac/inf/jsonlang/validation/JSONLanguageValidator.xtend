@@ -6,12 +6,13 @@ package uk.kcl.ac.inf.jsonlang.validation
 import org.eclipse.xtext.validation.Check
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.Statement
 import uk.kcl.ac.inf.jsonlang.jSONLanguage.JSONLanguagePackage
+import uk.kcl.ac.inf.jsonlang.typing.validation.jsonlangTypingSystemValidator
 
 /** 
  * This class contains custom validation rules. 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
-class JSONLanguageValidator extends AbstractJSONLanguageValidator {
+class JSONLanguageValidator extends jsonlangTypingSystemValidator {
 	
 	public static val KEY_CONTAINS_NUMBER_AT_START = 'uk.kcl.ac.inf.jsonlang.KEY_CONTAINS_NUMBER_AT_START'
 	public static val KEY_STARTS_WITH_CAPITAL = 'uk.kcl.ac.inf.jsonlang.KEY_STARTS_WITH_CAPITAL'

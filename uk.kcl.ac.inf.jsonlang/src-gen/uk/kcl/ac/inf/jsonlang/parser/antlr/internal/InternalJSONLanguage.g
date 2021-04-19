@@ -227,32 +227,39 @@ ruleValue returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
-		this_STRING_2=RULE_STRING
 		{
-			newLeafNode(this_STRING_2, grammarAccess.getValueAccess().getSTRINGTerminalRuleCall_2());
+			newCompositeNode(grammarAccess.getValueAccess().getTextParserRuleCall_2());
+		}
+		this_Text_2=ruleText
+		{
+			$current = $this_Text_2.current;
+			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
 			newCompositeNode(grammarAccess.getValueAccess().getNumberParserRuleCall_3());
 		}
-		ruleNumber
+		this_Number_3=ruleNumber
 		{
+			$current = $this_Number_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
 			newCompositeNode(grammarAccess.getValueAccess().getBooleanParserRuleCall_4());
 		}
-		ruleBoolean
+		this_Boolean_4=ruleBoolean
 		{
+			$current = $this_Boolean_4.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
 			newCompositeNode(grammarAccess.getValueAccess().getNullParserRuleCall_5());
 		}
-		ruleNull
+		this_Null_5=ruleNull
 		{
+			$current = $this_Null_5.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -331,15 +338,15 @@ ruleArray returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleBoolean
-entryRuleBoolean returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getBooleanRule()); }
-	iv_ruleBoolean=ruleBoolean
-	{ $current=$iv_ruleBoolean.current.getText(); }
+// Entry rule entryRuleText
+entryRuleText returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTextRule()); }
+	iv_ruleText=ruleText
+	{ $current=$iv_ruleText.current; }
 	EOF;
 
-// Rule Boolean
-ruleBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+// Rule Text
+ruleText returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -347,56 +354,215 @@ ruleBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 	leaveRule();
 }:
 	(
-		kw='true'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getBooleanAccess().getTrueKeyword_0());
-		}
-		    |
-		kw='false'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getBooleanAccess().getFalseKeyword_1());
-		}
+		(
+			lv_val_0_0=RULE_STRING
+			{
+				newLeafNode(lv_val_0_0, grammarAccess.getTextAccess().getValSTRINGTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getTextRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"val",
+					lv_val_0_0,
+					"org.eclipse.xtext.common.Terminals.STRING");
+			}
+		)
 	)
 ;
 
-// Entry rule entryRuleNull
-entryRuleNull returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getNullRule()); }
-	iv_ruleNull=ruleNull
-	{ $current=$iv_ruleNull.current.getText(); }
+// Entry rule entryRuleBoolean
+entryRuleBoolean returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBooleanRule()); }
+	iv_ruleBoolean=ruleBoolean
+	{ $current=$iv_ruleBoolean.current; }
 	EOF;
 
-// Rule Null
-ruleNull returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+// Rule Boolean
+ruleBoolean returns [EObject current=null]
 @init {
 	enterRule();
 }
 @after {
 	leaveRule();
 }:
-	kw='null'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getNullAccess().getNullKeyword());
-	}
+	(
+		(
+			(
+				lv_val_0_0='true'
+				{
+					newLeafNode(lv_val_0_0, grammarAccess.getBooleanAccess().getValTrueKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getBooleanRule());
+					}
+					setWithLastConsumed($current, "val", lv_val_0_0, "true");
+				}
+			)
+		)
+		    |
+		otherlv_1='false'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getBooleanAccess().getFalseKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleNull
+entryRuleNull returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNullRule()); }
+	iv_ruleNull=ruleNull
+	{ $current=$iv_ruleNull.current; }
+	EOF;
+
+// Rule Null
+ruleNull returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_val_0_0='null'
+			{
+				newLeafNode(lv_val_0_0, grammarAccess.getNullAccess().getValNullKeyword_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getNullRule());
+				}
+				setWithLastConsumed($current, "val", lv_val_0_0, "null");
+			}
+		)
+	)
 ;
 
 // Entry rule entryRuleNumber
-entryRuleNumber returns [String current=null]@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-}:
+entryRuleNumber returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getNumberRule()); }
 	iv_ruleNumber=ruleNumber
-	{ $current=$iv_ruleNumber.current.getText(); }
+	{ $current=$iv_ruleNumber.current; }
+	EOF;
+
+// Rule Number
+ruleNumber returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getNumberAccess().getIntNumberParserRuleCall_0());
+		}
+		this_IntNumber_0=ruleIntNumber
+		{
+			$current = $this_IntNumber_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getNumberAccess().getComplexNumberParserRuleCall_1());
+		}
+		this_ComplexNumber_1=ruleComplexNumber
+		{
+			$current = $this_ComplexNumber_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleIntNumber
+entryRuleIntNumber returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getIntNumberRule()); }
+	iv_ruleIntNumber=ruleIntNumber
+	{ $current=$iv_ruleIntNumber.current; }
+	EOF;
+
+// Rule IntNumber
+ruleIntNumber returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_val_0_0=RULE_INT
+			{
+				newLeafNode(lv_val_0_0, grammarAccess.getIntNumberAccess().getValINTTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getIntNumberRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"val",
+					lv_val_0_0,
+					"org.eclipse.xtext.common.Terminals.INT");
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleComplexNumber
+entryRuleComplexNumber returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getComplexNumberRule()); }
+	iv_ruleComplexNumber=ruleComplexNumber
+	{ $current=$iv_ruleComplexNumber.current; }
+	EOF;
+
+// Rule ComplexNumber
+ruleComplexNumber returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getComplexNumberAccess().getValCOMPLEXParserRuleCall_0());
+			}
+			lv_val_0_0=ruleCOMPLEX
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getComplexNumberRule());
+				}
+				set(
+					$current,
+					"val",
+					lv_val_0_0,
+					"uk.kcl.ac.inf.jsonlang.JSONLanguage.COMPLEX");
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleCOMPLEX
+entryRuleCOMPLEX returns [String current=null]@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}:
+	{ newCompositeNode(grammarAccess.getCOMPLEXRule()); }
+	iv_ruleCOMPLEX=ruleCOMPLEX
+	{ $current=$iv_ruleCOMPLEX.current.getText(); }
 	EOF;
 finally {
 	myHiddenTokenState.restore();
 }
 
-// Rule Number
-ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+// Rule COMPLEX
+ruleCOMPLEX returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
 	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
@@ -409,7 +575,7 @@ ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 			kw='-'
 			{
 				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getNumberAccess().getHyphenMinusKeyword_0());
+				newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getHyphenMinusKeyword_0());
 			}
 		)?
 		(
@@ -418,14 +584,14 @@ ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 				$current.merge(this_INT_1);
 			}
 			{
-				newLeafNode(this_INT_1, grammarAccess.getNumberAccess().getINTTerminalRuleCall_1());
+				newLeafNode(this_INT_1, grammarAccess.getCOMPLEXAccess().getINTTerminalRuleCall_1());
 			}
 		)?
 		(
 			kw='.'
 			{
 				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getNumberAccess().getFullStopKeyword_2());
+				newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getFullStopKeyword_2());
 			}
 		)?
 		this_INT_3=RULE_INT
@@ -433,34 +599,34 @@ ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 			$current.merge(this_INT_3);
 		}
 		{
-			newLeafNode(this_INT_3, grammarAccess.getNumberAccess().getINTTerminalRuleCall_3());
+			newLeafNode(this_INT_3, grammarAccess.getCOMPLEXAccess().getINTTerminalRuleCall_3());
 		}
 		(
 			(
 				kw='E'
 				{
 					$current.merge(kw);
-					newLeafNode(kw, grammarAccess.getNumberAccess().getEKeyword_4_0_0());
+					newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getEKeyword_4_0_0());
 				}
 				    |
 				kw='e'
 				{
 					$current.merge(kw);
-					newLeafNode(kw, grammarAccess.getNumberAccess().getEKeyword_4_0_1());
+					newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getEKeyword_4_0_1());
 				}
 			)
 			(
 				kw='-'
 				{
 					$current.merge(kw);
-					newLeafNode(kw, grammarAccess.getNumberAccess().getHyphenMinusKeyword_4_1());
+					newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getHyphenMinusKeyword_4_1());
 				}
 			)?
 			(
 				kw='+'
 				{
 					$current.merge(kw);
-					newLeafNode(kw, grammarAccess.getNumberAccess().getPlusSignKeyword_4_2());
+					newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getPlusSignKeyword_4_2());
 				}
 			)?
 			this_INT_8=RULE_INT
@@ -468,7 +634,7 @@ ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 				$current.merge(this_INT_8);
 			}
 			{
-				newLeafNode(this_INT_8, grammarAccess.getNumberAccess().getINTTerminalRuleCall_4_3());
+				newLeafNode(this_INT_8, grammarAccess.getCOMPLEXAccess().getINTTerminalRuleCall_4_3());
 			}
 		)?
 	)

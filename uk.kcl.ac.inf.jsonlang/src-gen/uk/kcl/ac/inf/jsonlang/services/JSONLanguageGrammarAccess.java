@@ -107,16 +107,16 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cJSONLanguageParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cArrayParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cTextParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cNumberParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cBooleanParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cNullParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Value:
-		//	jSONLanguage | Array | STRING | Number | Boolean | Null;
+		//	jSONLanguage | Array | Text | Number | Boolean | Null;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//jSONLanguage | Array | STRING | Number | Boolean | Null
+		//jSONLanguage | Array | Text | Number | Boolean | Null
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//jSONLanguage
@@ -125,8 +125,8 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 		//Array
 		public RuleCall getArrayParserRuleCall_1() { return cArrayParserRuleCall_1; }
 		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_2() { return cSTRINGTerminalRuleCall_2; }
+		//Text
+		public RuleCall getTextParserRuleCall_2() { return cTextParserRuleCall_2; }
 		
 		//Number
 		public RuleCall getNumberParserRuleCall_3() { return cNumberParserRuleCall_3; }
@@ -184,38 +184,110 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 		//']'
 		public Keyword getRightSquareBracketKeyword_2() { return cRightSquareBracketKeyword_2; }
 	}
+	public class TextElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.kcl.ac.inf.jsonlang.JSONLanguage.Text");
+		private final Assignment cValAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValSTRINGTerminalRuleCall_0 = (RuleCall)cValAssignment.eContents().get(0);
+		
+		//Text:
+		//	val=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//val=STRING
+		public Assignment getValAssignment() { return cValAssignment; }
+		
+		//STRING
+		public RuleCall getValSTRINGTerminalRuleCall_0() { return cValSTRINGTerminalRuleCall_0; }
+	}
 	public class BooleanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.kcl.ac.inf.jsonlang.JSONLanguage.Boolean");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Assignment cValAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cValTrueKeyword_0_0 = (Keyword)cValAssignment_0.eContents().get(0);
 		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		
 		//Boolean:
-		//	'true' | 'false';
+		//	val='true' | 'false';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'true' | 'false'
+		//val='true' | 'false'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//val='true'
+		public Assignment getValAssignment_0() { return cValAssignment_0; }
+		
 		//'true'
-		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
+		public Keyword getValTrueKeyword_0_0() { return cValTrueKeyword_0_0; }
 		
 		//'false'
 		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
 	}
 	public class NullElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.kcl.ac.inf.jsonlang.JSONLanguage.Null");
-		private final Keyword cNullKeyword = (Keyword)rule.eContents().get(1);
+		private final Assignment cValAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cValNullKeyword_0 = (Keyword)cValAssignment.eContents().get(0);
 		
 		//Null:
-		//	'null';
+		//	val='null';
 		@Override public ParserRule getRule() { return rule; }
 		
+		//val='null'
+		public Assignment getValAssignment() { return cValAssignment; }
+		
 		//'null'
-		public Keyword getNullKeyword() { return cNullKeyword; }
+		public Keyword getValNullKeyword_0() { return cValNullKeyword_0; }
 	}
 	public class NumberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.kcl.ac.inf.jsonlang.JSONLanguage.Number");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIntNumberParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cComplexNumberParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Number:
+		//	IntNumber | ComplexNumber;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//IntNumber | ComplexNumber
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//IntNumber
+		public RuleCall getIntNumberParserRuleCall_0() { return cIntNumberParserRuleCall_0; }
+		
+		//ComplexNumber
+		public RuleCall getComplexNumberParserRuleCall_1() { return cComplexNumberParserRuleCall_1; }
+	}
+	public class IntNumberElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.kcl.ac.inf.jsonlang.JSONLanguage.IntNumber");
+		private final Assignment cValAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValINTTerminalRuleCall_0 = (RuleCall)cValAssignment.eContents().get(0);
+		
+		//IntNumber:
+		//	val=INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//val=INT
+		public Assignment getValAssignment() { return cValAssignment; }
+		
+		//INT
+		public RuleCall getValINTTerminalRuleCall_0() { return cValINTTerminalRuleCall_0; }
+	}
+	public class ComplexNumberElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.kcl.ac.inf.jsonlang.JSONLanguage.ComplexNumber");
+		private final Assignment cValAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValCOMPLEXParserRuleCall_0 = (RuleCall)cValAssignment.eContents().get(0);
+		
+		//ComplexNumber:
+		//	val=COMPLEX;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//val=COMPLEX
+		public Assignment getValAssignment() { return cValAssignment; }
+		
+		//COMPLEX
+		public RuleCall getValCOMPLEXParserRuleCall_0() { return cValCOMPLEXParserRuleCall_0; }
+	}
+	public class COMPLEXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.kcl.ac.inf.jsonlang.JSONLanguage.COMPLEX");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
@@ -229,7 +301,7 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final Keyword cPlusSignKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		private final RuleCall cINTTerminalRuleCall_4_3 = (RuleCall)cGroup_4.eContents().get(3);
 		
-		//Number ecore::EFloat hidden():
+		//COMPLEX ecore::EFloat hidden():
 		//	'-'? INT? '.'? INT (('E' | 'e') '-'? '+'? INT)?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -275,9 +347,13 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 	private final StatementElements pStatement;
 	private final ValueElements pValue;
 	private final ArrayElements pArray;
+	private final TextElements pText;
 	private final BooleanElements pBoolean;
 	private final NullElements pNull;
 	private final NumberElements pNumber;
+	private final IntNumberElements pIntNumber;
+	private final ComplexNumberElements pComplexNumber;
+	private final COMPLEXElements pCOMPLEX;
 	
 	private final Grammar grammar;
 	
@@ -292,9 +368,13 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 		this.pStatement = new StatementElements();
 		this.pValue = new ValueElements();
 		this.pArray = new ArrayElements();
+		this.pText = new TextElements();
 		this.pBoolean = new BooleanElements();
 		this.pNull = new NullElements();
 		this.pNumber = new NumberElements();
+		this.pIntNumber = new IntNumberElements();
+		this.pComplexNumber = new ComplexNumberElements();
+		this.pCOMPLEX = new COMPLEXElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -346,7 +426,7 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 	}
 	
 	//Value:
-	//	jSONLanguage | Array | STRING | Number | Boolean | Null;
+	//	jSONLanguage | Array | Text | Number | Boolean | Null;
 	public ValueElements getValueAccess() {
 		return pValue;
 	}
@@ -365,8 +445,18 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 		return getArrayAccess().getRule();
 	}
 	
+	//Text:
+	//	val=STRING;
+	public TextElements getTextAccess() {
+		return pText;
+	}
+	
+	public ParserRule getTextRule() {
+		return getTextAccess().getRule();
+	}
+	
 	//Boolean:
-	//	'true' | 'false';
+	//	val='true' | 'false';
 	public BooleanElements getBooleanAccess() {
 		return pBoolean;
 	}
@@ -376,7 +466,7 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 	}
 	
 	//Null:
-	//	'null';
+	//	val='null';
 	public NullElements getNullAccess() {
 		return pNull;
 	}
@@ -385,14 +475,44 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 		return getNullAccess().getRule();
 	}
 	
-	//Number ecore::EFloat hidden():
-	//	'-'? INT? '.'? INT (('E' | 'e') '-'? '+'? INT)?;
+	//Number:
+	//	IntNumber | ComplexNumber;
 	public NumberElements getNumberAccess() {
 		return pNumber;
 	}
 	
 	public ParserRule getNumberRule() {
 		return getNumberAccess().getRule();
+	}
+	
+	//IntNumber:
+	//	val=INT;
+	public IntNumberElements getIntNumberAccess() {
+		return pIntNumber;
+	}
+	
+	public ParserRule getIntNumberRule() {
+		return getIntNumberAccess().getRule();
+	}
+	
+	//ComplexNumber:
+	//	val=COMPLEX;
+	public ComplexNumberElements getComplexNumberAccess() {
+		return pComplexNumber;
+	}
+	
+	public ParserRule getComplexNumberRule() {
+		return getComplexNumberAccess().getRule();
+	}
+	
+	//COMPLEX ecore::EFloat hidden():
+	//	'-'? INT? '.'? INT (('E' | 'e') '-'? '+'? INT)?;
+	public COMPLEXElements getCOMPLEXAccess() {
+		return pCOMPLEX;
+	}
+	
+	public ParserRule getCOMPLEXRule() {
+		return getCOMPLEXAccess().getRule();
 	}
 	
 	//terminal ID:

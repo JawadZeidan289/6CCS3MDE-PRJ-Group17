@@ -60,6 +60,60 @@ public interface JSONLanguageFactory extends EFactory
   Array createArray();
 
   /**
+   * Returns a new object of class '<em>Text</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Text</em>'.
+   * @generated
+   */
+  Text createText();
+
+  /**
+   * Returns a new object of class '<em>Boolean</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean</em>'.
+   * @generated
+   */
+  Boolean createBoolean();
+
+  /**
+   * Returns a new object of class '<em>Null</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Null</em>'.
+   * @generated
+   */
+  Null createNull();
+
+  /**
+   * Returns a new object of class '<em>Number</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Number</em>'.
+   * @generated
+   */
+  Number createNumber();
+
+  /**
+   * Returns a new object of class '<em>Int Number</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Int Number</em>'.
+   * @generated
+   */
+  IntNumber createIntNumber();
+
+  /**
+   * Returns a new object of class '<em>Complex Number</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Complex Number</em>'.
+   * @generated
+   */
+  ComplexNumber createComplexNumber();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
