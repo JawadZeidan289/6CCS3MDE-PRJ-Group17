@@ -23,10 +23,10 @@ Text:
 	val = STRING;
 
 Boolean:
-  val = 'true' | 'false';
+	val = 'true' | 'false';
 
 Null:
-  val = 'null';
+	val = 'null';
 
 Number:
 	IntNumber | ComplexNumber;
