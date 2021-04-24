@@ -1,0 +1,11 @@
+/* XPECT_SETUP uk.kcl.ac.inf.json.xpect.XPextTests END_SETUP */
+{
+	"asd asd asd": "jawad",
+	"bject" : {
+		"name" : "person2",
+		"number" : "92193129",
+		"hasd" : "five"
+	},
+	"number": "07213812",
+	"list" : ["object", "person"]
+}
