@@ -972,7 +972,7 @@ rule__COMPLEX__Group__2__Impl
 :
 (
 	{ before(grammarAccess.getCOMPLEXAccess().getFullStopKeyword_2()); }
-	('.')?
+	'.'
 	{ after(grammarAccess.getCOMPLEXAccess().getFullStopKeyword_2()); }
 )
 ;

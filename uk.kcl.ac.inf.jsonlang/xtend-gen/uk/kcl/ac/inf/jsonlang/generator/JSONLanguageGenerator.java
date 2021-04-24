@@ -3,10 +3,15 @@
  */
 package uk.kcl.ac.inf.jsonlang.generator;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
+import uk.kcl.ac.inf.jsonlang.jSONLanguage.jSONLanguage;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +22,40 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class JSONLanguageGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
+    final jSONLanguage model = ((jSONLanguage) _head);
+    fsa.generateFile(this.deriveTargetFileNameFor(model, resource), this.generate(model));
+    final String className = this.deriveClassName(resource);
+    fsa.generateFile((className + ".java"), this.doGenerateClass(model, className));
+  }
+  
+  public String deriveClassName(final Resource resource) {
+    String _xblockexpression = null;
+    {
+      final String origFilename = resource.getURI().lastSegment();
+      String _firstUpper = StringExtensions.toFirstUpper(origFilename.substring(0, origFilename.indexOf(".")));
+      _xblockexpression = (_firstUpper + "JSON");
+    }
+    return _xblockexpression;
+  }
+  
+  public String deriveTargetFileNameFor(final jSONLanguage model, final Resource resource) {
+    return resource.getURI().appendFileExtension("txt").lastSegment();
+  }
+  
+  public CharSequence doGenerateClass(final jSONLanguage language, final Object object) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("        ");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generate(final jSONLanguage model) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("        ");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.newLine();
+    return _builder;
   }
 }

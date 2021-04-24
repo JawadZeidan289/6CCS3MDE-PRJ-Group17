@@ -1212,7 +1212,20 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
             int LA3_0 = input.LA(1);
 
             if ( (LA3_0==RULE_INT) ) {
-                alt3=1;
+                int LA3_1 = input.LA(2);
+
+                if ( (LA3_1==EOF||(LA3_1>=15 && LA3_1<=16)||LA3_1==19) ) {
+                    alt3=1;
+                }
+                else if ( (LA3_1==21) ) {
+                    alt3=2;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 3, 1, input);
+
+                    throw nvae;
+                }
             }
             else if ( ((LA3_0>=20 && LA3_0<=21)) ) {
                 alt3=2;
@@ -2897,11 +2910,7 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
             int LA10_0 = input.LA(1);
 
             if ( (LA10_0==RULE_INT) ) {
-                int LA10_1 = input.LA(2);
-
-                if ( (LA10_1==RULE_INT||LA10_1==21) ) {
-                    alt10=1;
-                }
+                alt10=1;
             }
             switch (alt10) {
                 case 1 :
@@ -2946,7 +2955,7 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
             // InternalJSONLanguage.g:960:1: ( rule__COMPLEX__Group__2__Impl rule__COMPLEX__Group__3 )
             // InternalJSONLanguage.g:961:2: rule__COMPLEX__Group__2__Impl rule__COMPLEX__Group__3
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_11);
             rule__COMPLEX__Group__2__Impl();
 
             state._fsp--;
@@ -2975,37 +2984,20 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__COMPLEX__Group__2__Impl"
-    // InternalJSONLanguage.g:968:1: rule__COMPLEX__Group__2__Impl : ( ( '.' )? ) ;
+    // InternalJSONLanguage.g:968:1: rule__COMPLEX__Group__2__Impl : ( '.' ) ;
     public final void rule__COMPLEX__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJSONLanguage.g:972:1: ( ( ( '.' )? ) )
-            // InternalJSONLanguage.g:973:1: ( ( '.' )? )
+            // InternalJSONLanguage.g:972:1: ( ( '.' ) )
+            // InternalJSONLanguage.g:973:1: ( '.' )
             {
-            // InternalJSONLanguage.g:973:1: ( ( '.' )? )
-            // InternalJSONLanguage.g:974:2: ( '.' )?
+            // InternalJSONLanguage.g:973:1: ( '.' )
+            // InternalJSONLanguage.g:974:2: '.'
             {
              before(grammarAccess.getCOMPLEXAccess().getFullStopKeyword_2()); 
-            // InternalJSONLanguage.g:975:2: ( '.' )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
-
-            if ( (LA11_0==21) ) {
-                alt11=1;
-            }
-            switch (alt11) {
-                case 1 :
-                    // InternalJSONLanguage.g:975:3: '.'
-                    {
-                    match(input,21,FOLLOW_2); 
-
-                    }
-                    break;
-
-            }
-
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getCOMPLEXAccess().getFullStopKeyword_2()); 
 
             }
@@ -3038,7 +3030,7 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
             // InternalJSONLanguage.g:987:1: ( rule__COMPLEX__Group__3__Impl rule__COMPLEX__Group__4 )
             // InternalJSONLanguage.g:988:2: rule__COMPLEX__Group__3__Impl rule__COMPLEX__Group__4
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__COMPLEX__Group__3__Impl();
 
             state._fsp--;
@@ -3151,13 +3143,13 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
             {
              before(grammarAccess.getCOMPLEXAccess().getGroup_4()); 
             // InternalJSONLanguage.g:1028:2: ( rule__COMPLEX__Group_4__0 )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( ((LA12_0>=12 && LA12_0<=13)) ) {
-                alt12=1;
+            if ( ((LA11_0>=12 && LA11_0<=13)) ) {
+                alt11=1;
             }
-            switch (alt12) {
+            switch (alt11) {
                 case 1 :
                     // InternalJSONLanguage.g:1028:3: rule__COMPLEX__Group_4__0
                     {
@@ -3204,7 +3196,7 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
             // InternalJSONLanguage.g:1041:1: ( rule__COMPLEX__Group_4__0__Impl rule__COMPLEX__Group_4__1 )
             // InternalJSONLanguage.g:1042:2: rule__COMPLEX__Group_4__0__Impl rule__COMPLEX__Group_4__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__COMPLEX__Group_4__0__Impl();
 
             state._fsp--;
@@ -3289,7 +3281,7 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
             // InternalJSONLanguage.g:1068:1: ( rule__COMPLEX__Group_4__1__Impl rule__COMPLEX__Group_4__2 )
             // InternalJSONLanguage.g:1069:2: rule__COMPLEX__Group_4__1__Impl rule__COMPLEX__Group_4__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__COMPLEX__Group_4__1__Impl();
 
             state._fsp--;
@@ -3332,13 +3324,13 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
             {
              before(grammarAccess.getCOMPLEXAccess().getHyphenMinusKeyword_4_1()); 
             // InternalJSONLanguage.g:1083:2: ( '-' )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA13_0==20) ) {
-                alt13=1;
+            if ( (LA12_0==20) ) {
+                alt12=1;
             }
-            switch (alt13) {
+            switch (alt12) {
                 case 1 :
                     // InternalJSONLanguage.g:1083:3: '-'
                     {
@@ -3381,7 +3373,7 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
             // InternalJSONLanguage.g:1095:1: ( rule__COMPLEX__Group_4__2__Impl rule__COMPLEX__Group_4__3 )
             // InternalJSONLanguage.g:1096:2: rule__COMPLEX__Group_4__2__Impl rule__COMPLEX__Group_4__3
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__COMPLEX__Group_4__2__Impl();
 
             state._fsp--;
@@ -3424,13 +3416,13 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
             {
              before(grammarAccess.getCOMPLEXAccess().getPlusSignKeyword_4_2()); 
             // InternalJSONLanguage.g:1110:2: ( '+' )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA14_0==22) ) {
-                alt14=1;
+            if ( (LA13_0==22) ) {
+                alt13=1;
             }
-            switch (alt14) {
+            switch (alt13) {
                 case 1 :
                     // InternalJSONLanguage.g:1110:3: '+'
                     {
@@ -3994,7 +3986,8 @@ public class InternalJSONLanguageParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000001B44830L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000001BC4830L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000300010L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000003000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000500010L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000003000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000500010L});
 
 }

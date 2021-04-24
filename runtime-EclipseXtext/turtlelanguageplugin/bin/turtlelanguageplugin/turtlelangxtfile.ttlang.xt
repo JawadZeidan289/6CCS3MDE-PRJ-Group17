@@ -1,7 +1,0 @@
-// XPECT_SETUP turtlelanguageplugin.TestClass1 END_SETUP
-10 times do
-	forward(10)
-	turn left by 3 degrees
-	turn right by 50 degrees
-	backward(250)
-end

@@ -587,13 +587,11 @@ ruleCOMPLEX returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 				newLeafNode(this_INT_1, grammarAccess.getCOMPLEXAccess().getINTTerminalRuleCall_1());
 			}
 		)?
-		(
-			kw='.'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getFullStopKeyword_2());
-			}
-		)?
+		kw='.'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getFullStopKeyword_2());
+		}
 		this_INT_3=RULE_INT
 		{
 			$current.merge(this_INT_3);

@@ -302,10 +302,10 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 		private final RuleCall cINTTerminalRuleCall_4_3 = (RuleCall)cGroup_4.eContents().get(3);
 		
 		//COMPLEX ecore::EFloat hidden():
-		//	'-'? INT? '.'? INT (('E' | 'e') '-'? '+'? INT)?;
+		//	'-'? INT? '.' INT (('E' | 'e') '-'? '+'? INT)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'-'? INT? '.'? INT (('E' | 'e') '-'? '+'? INT)?
+		//'-'? INT? '.' INT (('E' | 'e') '-'? '+'? INT)?
 		public Group getGroup() { return cGroup; }
 		
 		//'-'?
@@ -314,7 +314,7 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 		//INT?
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 		
-		//'.'?
+		//'.'
 		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
 		
 		//INT
@@ -506,7 +506,7 @@ public class JSONLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 	}
 	
 	//COMPLEX ecore::EFloat hidden():
-	//	'-'? INT? '.'? INT (('E' | 'e') '-'? '+'? INT)?;
+	//	'-'? INT? '.' INT (('E' | 'e') '-'? '+'? INT)?;
 	public COMPLEXElements getCOMPLEXAccess() {
 		return pCOMPLEX;
 	}
