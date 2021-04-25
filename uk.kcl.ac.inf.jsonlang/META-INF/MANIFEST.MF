@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: uk.kcl.ac.inf.jsonlang
+Bundle-ManifestVersion: 2
+Bundle-Name: uk.kcl.ac.inf.jsonlang
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: uk.kcl.ac.inf.jsonlang; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.eclipse.xtend.lib;bundle-version="2.14.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: uk.kcl.ac.inf.jsonlang.scoping,
+ uk.kcl.ac.inf.jsonlang.generator,
+ uk.kcl.ac.inf.jsonlang.parser.antlr,
+ uk.kcl.ac.inf.jsonlang.parser.antlr.internal,
+ uk.kcl.ac.inf.jsonlang,
+ uk.kcl.ac.inf.jsonlang.jsonLanguage.util,
+ uk.kcl.ac.inf.jsonlang.jsonLanguage,
+ uk.kcl.ac.inf.jsonlang.serializer,
+ uk.kcl.ac.inf.jsonlang.services,
+ uk.kcl.ac.inf.jsonlang.validation,
+ uk.kcl.ac.inf.jsonlang.jsonLanguage.impl
+Import-Package: org.apache.log4j

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.kcl.uk/ac/inf/jsonlang/JsonLanguage"
+			class = "uk.kcl.ac.inf.jsonlang.jsonLanguage.JsonLanguagePackage"
+			genModel = "model/generated/JsonLanguage.genmodel" />
+	</extension>
+</plugin>
