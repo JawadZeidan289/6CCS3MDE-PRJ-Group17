@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Xpect
-Bundle-SymbolicName: uk.kcl.ac.inf.json.xpect
-Bundle-Version: 1.0.0.qualifier
-Automatic-Module-Name: uk.kcl.ac.inf.json.xpect
-Bundle-RequiredExecutionEnvironment: JavaSE-13
