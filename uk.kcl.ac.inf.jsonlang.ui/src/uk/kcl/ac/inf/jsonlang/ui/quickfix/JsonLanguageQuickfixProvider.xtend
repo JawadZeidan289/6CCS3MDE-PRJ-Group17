@@ -4,6 +4,11 @@
 package uk.kcl.ac.inf.jsonlang.ui.quickfix
 
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
+import org.eclipse.xtext.ui.editor.quickfix.Fix
+import uk.kcl.ac.inf.jsonlang.validation.JsonLanguageValidator
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
+import org.eclipse.xtext.validation.Issue
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.Statement
 
 /**
  * Custom quickfixes.
@@ -12,13 +17,29 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
  */
 class JsonLanguageQuickfixProvider extends DefaultQuickfixProvider {
 
-//	@Fix(JsonLanguageValidator.INVALID_NAME)
-//	def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {
-//		acceptor.accept(issue, 'Capitalize name', 'Capitalize the name.', 'upcase.png') [
-//			context |
-//			val xtextDocument = context.xtextDocument
-//			val firstLetter = xtextDocument.get(issue.offset, 1)
-//			xtextDocument.replace(issue.offset, 1, firstLetter.toUpperCase)
-//		]
-//	}
+	@Fix(JsonLanguageValidator.KEY_CONTAINS_NUMBER_AT_START)
+	def numberAtStartOfKey(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.acceptMulti(issue, 'Remove number', 'Remove the number at the start of the key variable', null)[element | 
+			val variableDeclaration = element as Statement
+			val sb = new StringBuilder(variableDeclaration.key)
+			sb.deleteCharAt(0)
+			variableDeclaration.key = sb.toString()
+		]
+	}
+	
+	@Fix(JsonLanguageValidator.KEY_STARTS_WITH_CAPITAL)
+	def capitalAtStartOfKey(Issue issue, IssueResolutionAcceptor acceptor) { 
+		acceptor.acceptMulti(issue, 'De-capitalise the start', 'Replace the capital letter at the start with the lower-case alternative', null)[element | 
+			val variableDeclaration = element as Statement
+			variableDeclaration.key = variableDeclaration.key.toFirstLower
+		]
+	}
+	
+	@Fix(JsonLanguageValidator.KEY_CONTAINS_SPACES)
+	def spacesInKey(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.acceptMulti(issue, 'Remove white space', 'Remove the white spaces inside the key variable', null)[element | 
+			val variableDeclaration = element as Statement
+			variableDeclaration.key = variableDeclaration.key.replaceAll("\\s+","")
+		]
+	}
 }

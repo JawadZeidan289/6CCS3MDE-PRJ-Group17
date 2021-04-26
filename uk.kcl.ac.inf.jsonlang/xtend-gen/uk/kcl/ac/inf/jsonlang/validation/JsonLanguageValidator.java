@@ -3,6 +3,9 @@
  */
 package uk.kcl.ac.inf.jsonlang.validation;
 
+import org.eclipse.xtext.validation.Check;
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.JsonLanguagePackage;
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.Statement;
 import uk.kcl.ac.inf.jsonlang.validation.AbstractJsonLanguageValidator;
 
 /**
@@ -12,4 +15,44 @@ import uk.kcl.ac.inf.jsonlang.validation.AbstractJsonLanguageValidator;
  */
 @SuppressWarnings("all")
 public class JsonLanguageValidator extends AbstractJsonLanguageValidator {
+  public static final String KEY_CONTAINS_NUMBER_AT_START = "uk.kcl.ac.inf.jsonlang.KEY_CONTAINS_NUMBER_AT_START";
+  
+  public static final String KEY_STARTS_WITH_CAPITAL = "uk.kcl.ac.inf.jsonlang.KEY_STARTS_WITH_CAPITAL";
+  
+  public static final String KEY_CONTAINS_SPACES = "uk.kcl.ac.inf.jsonlang.KEY_CONTAINS_SPACES";
+  
+  @Check
+  public void CheckKeyDoesNotStartWithNumber(final Statement statement) {
+    boolean _isDigit = Character.isDigit(statement.getKey().charAt(0));
+    if (_isDigit) {
+      this.warning("Key should not start with a numerical character", statement, 
+        JsonLanguagePackage.Literals.STATEMENT__KEY, 
+        JsonLanguageValidator.KEY_CONTAINS_NUMBER_AT_START);
+    }
+  }
+  
+  @Check
+  public void CheckKeyDoesNotStartWithCapital(final Statement statement) {
+    boolean _isLowerCase = Character.isLowerCase(statement.getKey().charAt(0));
+    boolean _not = (!_isLowerCase);
+    if (_not) {
+      boolean _isDigit = Character.isDigit(statement.getKey().charAt(0));
+      boolean _not_1 = (!_isDigit);
+      if (_not_1) {
+        this.warning("Key should not start with a capital letter", statement, 
+          JsonLanguagePackage.Literals.STATEMENT__KEY, 
+          JsonLanguageValidator.KEY_STARTS_WITH_CAPITAL);
+      }
+    }
+  }
+  
+  @Check
+  public void CheckKeyDoesNotContainSpaces(final Statement statement) {
+    boolean _contains = statement.getKey().contains(" ");
+    if (_contains) {
+      this.warning("Key should not contain spaces", statement, 
+        JsonLanguagePackage.Literals.STATEMENT__KEY, 
+        JsonLanguageValidator.KEY_CONTAINS_SPACES);
+    }
+  }
 }

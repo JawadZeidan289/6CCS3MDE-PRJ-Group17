@@ -3,6 +3,9 @@
  */
 package uk.kcl.ac.inf.jsonlang.validation
 
+import org.eclipse.xtext.validation.Check
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.Statement
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.JsonLanguagePackage
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +14,40 @@ package uk.kcl.ac.inf.jsonlang.validation
  */
 class JsonLanguageValidator extends AbstractJsonLanguageValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					JsonLanguagePackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	public static val KEY_CONTAINS_NUMBER_AT_START = 'uk.kcl.ac.inf.jsonlang.KEY_CONTAINS_NUMBER_AT_START'
+	public static val KEY_STARTS_WITH_CAPITAL = 'uk.kcl.ac.inf.jsonlang.KEY_STARTS_WITH_CAPITAL'
+	public static val KEY_CONTAINS_SPACES = 'uk.kcl.ac.inf.jsonlang.KEY_CONTAINS_SPACES'
+
+	@Check
+	def CheckKeyDoesNotStartWithNumber(Statement statement) {
+		if(Character.isDigit(statement.key.charAt(0))) {
+			warning('Key should not start with a numerical character', statement,
+				JsonLanguagePackage.Literals.STATEMENT__KEY,
+				KEY_CONTAINS_NUMBER_AT_START
+			)
+		}
+	}
+	
+	@Check
+	def CheckKeyDoesNotStartWithCapital(Statement statement) {
+		if(!Character.isLowerCase(statement.key.charAt(0))) {
+			if(!Character.isDigit(statement.key.charAt(0))) {
+				warning('Key should not start with a capital letter', statement,
+				JsonLanguagePackage.Literals.STATEMENT__KEY,
+				KEY_STARTS_WITH_CAPITAL
+				)
+			}
+		}
+	}
+	
+	@Check
+	def CheckKeyDoesNotContainSpaces(Statement statement) {
+		if(statement.key.contains(" ")) {
+			warning('Key should not contain spaces', statement,
+				JsonLanguagePackage.Literals.STATEMENT__KEY,
+				KEY_CONTAINS_SPACES
+			)
+		}
+	}
 	
 }
