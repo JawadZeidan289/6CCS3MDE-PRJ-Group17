@@ -3,10 +3,17 @@
  */
 package uk.kcl.ac.inf.jsonlang.generator;
 
+import com.google.common.collect.Iterators;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.IntNumber;
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.JsonProgram;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +24,25 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class JsonLanguageGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
+    final JsonProgram model = ((JsonProgram) _head);
+    fsa.generateFile(this.deriveTargetFileNameFor(model, resource), this.generate(model));
+  }
+  
+  public String deriveTargetFileNameFor(final JsonProgram model, final Resource resource) {
+    return resource.getURI().appendFileExtension("txt").lastSegment();
+  }
+  
+  public CharSequence generate(final JsonProgram model) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Programs contains:");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("- ");
+    int _size = IteratorExtensions.size(Iterators.<IntNumber>filter(model.eAllContents(), IntNumber.class));
+    _builder.append(_size);
+    _builder.append(" number of Int");
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
 }

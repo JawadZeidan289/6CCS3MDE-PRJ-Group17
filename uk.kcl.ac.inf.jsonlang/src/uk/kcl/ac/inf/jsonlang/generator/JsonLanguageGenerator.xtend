@@ -7,6 +7,9 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.JsonProgram
+//import org.w3c.dom.Text
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.IntNumber
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +18,34 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class JsonLanguageGenerator extends AbstractGenerator {
 
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
-	}
+    override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+        val model = resource.contents.head as JsonProgram
+        fsa.generateFile(deriveTargetFileNameFor(model, resource), model.generate)
+//        val className = resource.deriveClassName
+//        fsa.generateFile(className + '.java', model.doGenerateClass(className))
+    }
+    
+//    def deriveClassName(Resource resource){
+//        val origFilename = resource.URI.lastSegment
+//        origFilename.substring(0, origFilename.indexOf('.')).toFirstUpper + 'JSON'
+//    }
+    
+    def deriveTargetFileNameFor(JsonProgram model, Resource resource){
+        resource.URI.appendFileExtension('txt').lastSegment
+    }
+    
+//    def doGenerateClass(jSONLanguage language, String className)'''
+//        public class «className»{
+//            public static void main (String[] args) {
+//                
+//        }
+//    '''
+    
+    
+    def generate(JsonProgram model)'''
+        Programs contains:
+        
+        - «model.eAllContents.filter(IntNumber).size» number of Int
+    '''
+   
 }

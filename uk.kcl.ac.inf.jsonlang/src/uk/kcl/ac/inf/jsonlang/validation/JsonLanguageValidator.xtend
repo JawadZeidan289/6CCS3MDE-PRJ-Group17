@@ -30,8 +30,8 @@ class JsonLanguageValidator extends AbstractJsonLanguageValidator {
 	
 	@Check
 	def CheckKeyDoesNotStartWithCapital(Statement statement) {
-		if(!Character.isLowerCase(statement.key.charAt(0))) {
-			if(!Character.isDigit(statement.key.charAt(0))) {
+		if(Character.isLetter(statement.key.charAt(0))) {
+			if(!Character.isLowerCase(statement.key.charAt(0))) {
 				warning('Key should not start with a capital letter', statement,
 				JsonLanguagePackage.Literals.STATEMENT__KEY,
 				KEY_STARTS_WITH_CAPITAL

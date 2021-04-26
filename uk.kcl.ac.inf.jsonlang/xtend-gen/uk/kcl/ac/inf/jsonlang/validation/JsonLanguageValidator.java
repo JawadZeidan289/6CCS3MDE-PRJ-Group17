@@ -33,12 +33,11 @@ public class JsonLanguageValidator extends AbstractJsonLanguageValidator {
   
   @Check
   public void CheckKeyDoesNotStartWithCapital(final Statement statement) {
-    boolean _isLowerCase = Character.isLowerCase(statement.getKey().charAt(0));
-    boolean _not = (!_isLowerCase);
-    if (_not) {
-      boolean _isDigit = Character.isDigit(statement.getKey().charAt(0));
-      boolean _not_1 = (!_isDigit);
-      if (_not_1) {
+    boolean _isLetter = Character.isLetter(statement.getKey().charAt(0));
+    if (_isLetter) {
+      boolean _isLowerCase = Character.isLowerCase(statement.getKey().charAt(0));
+      boolean _not = (!_isLowerCase);
+      if (_not) {
         this.warning("Key should not start with a capital letter", statement, 
           JsonLanguagePackage.Literals.STATEMENT__KEY, 
           JsonLanguageValidator.KEY_STARTS_WITH_CAPITAL);
