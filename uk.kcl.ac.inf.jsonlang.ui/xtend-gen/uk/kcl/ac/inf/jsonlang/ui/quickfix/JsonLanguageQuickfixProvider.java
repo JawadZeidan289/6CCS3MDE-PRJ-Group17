@@ -45,8 +45,8 @@ public class JsonLanguageQuickfixProvider extends DefaultQuickfixProvider {
   public void spacesInKey(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IMultiModification<EObject> _function = (EObject element) -> {
       final Statement variableDeclaration = ((Statement) element);
-      variableDeclaration.setKey(variableDeclaration.getKey().replaceAll("\\s+", ""));
+      variableDeclaration.setKey(variableDeclaration.getKey().replaceAll("\\s+", "_"));
     };
-    acceptor.<EObject>acceptMulti(issue, "Remove white space", "Remove the white spaces inside the key variable", null, _function);
+    acceptor.<EObject>acceptMulti(issue, "Reformat text", "Replace the white space with underscores", null, _function);
   }
 }

@@ -37,9 +37,9 @@ class JsonLanguageQuickfixProvider extends DefaultQuickfixProvider {
 	
 	@Fix(JsonLanguageValidator.KEY_CONTAINS_SPACES)
 	def spacesInKey(Issue issue, IssueResolutionAcceptor acceptor) {
-		acceptor.acceptMulti(issue, 'Remove white space', 'Remove the white spaces inside the key variable', null)[element | 
+		acceptor.acceptMulti(issue, 'Reformat text', 'Replace the white space with underscores', null)[element | 
 			val variableDeclaration = element as Statement
-			variableDeclaration.key = variableDeclaration.key.replaceAll("\\s+","")
+			variableDeclaration.key = variableDeclaration.key.replaceAll("\\s+","_")
 		]
 	}
 }

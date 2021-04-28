@@ -31,27 +31,12 @@ class JsonLanguageGenerator extends AbstractGenerator {
     override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
         val model = resource.contents.head as JsonProgram
         fsa.generateFile(deriveTargetFileNameFor(model, resource), model.generate)
-//        val className = resource.deriveClassName
-//        fsa.generateFile(className + '.java', model.doGenerateClass(className))
     }
-    
-//    def deriveClassName(Resource resource){
-//        val origFilename = resource.URI.lastSegment
-//        origFilename.substring(0, origFilename.indexOf('.')).toFirstUpper + 'JSON'
-//    }
     
     def deriveTargetFileNameFor(JsonProgram model, Resource resource){
         resource.URI.appendFileExtension('txt').lastSegment
     }
-    
-//    def doGenerateClass(jSONLanguage language, String className)'''
-//        public class «className»{
-//            public static void main (String[] args) {
-//                
-//        }
-//    '''
-    
-    
+     
     def generate(JsonProgram model) {
     	val statements = model.statement
 		'''
