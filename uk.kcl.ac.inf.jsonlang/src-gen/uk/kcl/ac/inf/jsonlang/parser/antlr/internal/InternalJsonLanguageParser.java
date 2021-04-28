@@ -1220,16 +1220,29 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
             {
             // InternalJsonLanguage.g:460:2: (this_IntNumber_0= ruleIntNumber | this_ComplexNumber_1= ruleComplexNumber )
             int alt7=2;
-            int LA7_0 = input.LA(1);
-
-            if ( (LA7_0==RULE_INT) ) {
+            switch ( input.LA(1) ) {
+            case 20:
+                {
                 int LA7_1 = input.LA(2);
 
-                if ( (LA7_1==21) ) {
-                    alt7=2;
+                if ( (LA7_1==RULE_INT) ) {
+                    int LA7_2 = input.LA(3);
+
+                    if ( (LA7_2==21) ) {
+                        alt7=2;
+                    }
+                    else if ( (LA7_2==EOF||(LA7_2>=12 && LA7_2<=13)||LA7_2==16) ) {
+                        alt7=1;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 7, 2, input);
+
+                        throw nvae;
+                    }
                 }
-                else if ( (LA7_1==EOF||(LA7_1>=12 && LA7_1<=13)||LA7_1==16) ) {
-                    alt7=1;
+                else if ( (LA7_1==21) ) {
+                    alt7=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1237,16 +1250,38 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
                     throw nvae;
                 }
-            }
-            else if ( ((LA7_0>=20 && LA7_0<=21)) ) {
+                }
+                break;
+            case RULE_INT:
+                {
+                int LA7_2 = input.LA(2);
+
+                if ( (LA7_2==21) ) {
+                    alt7=2;
+                }
+                else if ( (LA7_2==EOF||(LA7_2>=12 && LA7_2<=13)||LA7_2==16) ) {
+                    alt7=1;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 7, 2, input);
+
+                    throw nvae;
+                }
+                }
+                break;
+            case 21:
+                {
                 alt7=2;
-            }
-            else {
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
+
             switch (alt7) {
                 case 1 :
                     // InternalJsonLanguage.g:461:3: this_IntNumber_0= ruleIntNumber
@@ -1343,38 +1378,44 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIntNumber"
-    // InternalJsonLanguage.g:489:1: ruleIntNumber returns [EObject current=null] : ( (lv_val_0_0= RULE_INT ) ) ;
+    // InternalJsonLanguage.g:489:1: ruleIntNumber returns [EObject current=null] : ( (lv_val_0_0= ruleFinalint ) ) ;
     public final EObject ruleIntNumber() throws RecognitionException {
         EObject current = null;
 
-        Token lv_val_0_0=null;
+        AntlrDatatypeRuleToken lv_val_0_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalJsonLanguage.g:495:2: ( ( (lv_val_0_0= RULE_INT ) ) )
-            // InternalJsonLanguage.g:496:2: ( (lv_val_0_0= RULE_INT ) )
+            // InternalJsonLanguage.g:495:2: ( ( (lv_val_0_0= ruleFinalint ) ) )
+            // InternalJsonLanguage.g:496:2: ( (lv_val_0_0= ruleFinalint ) )
             {
-            // InternalJsonLanguage.g:496:2: ( (lv_val_0_0= RULE_INT ) )
-            // InternalJsonLanguage.g:497:3: (lv_val_0_0= RULE_INT )
+            // InternalJsonLanguage.g:496:2: ( (lv_val_0_0= ruleFinalint ) )
+            // InternalJsonLanguage.g:497:3: (lv_val_0_0= ruleFinalint )
             {
-            // InternalJsonLanguage.g:497:3: (lv_val_0_0= RULE_INT )
-            // InternalJsonLanguage.g:498:4: lv_val_0_0= RULE_INT
+            // InternalJsonLanguage.g:497:3: (lv_val_0_0= ruleFinalint )
+            // InternalJsonLanguage.g:498:4: lv_val_0_0= ruleFinalint
             {
-            lv_val_0_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
-            				newLeafNode(lv_val_0_0, grammarAccess.getIntNumberAccess().getValINTTerminalRuleCall_0());
+            				newCompositeNode(grammarAccess.getIntNumberAccess().getValFinalintParserRuleCall_0());
             			
+            pushFollow(FOLLOW_2);
+            lv_val_0_0=ruleFinalint();
+
+            state._fsp--;
+
 
             				if (current==null) {
-            					current = createModelElement(grammarAccess.getIntNumberRule());
+            					current = createModelElementForParent(grammarAccess.getIntNumberRule());
             				}
-            				setWithLastConsumed(
+            				set(
             					current,
             					"val",
             					lv_val_0_0,
-            					"org.eclipse.xtext.common.Terminals.INT");
+            					"uk.kcl.ac.inf.jsonlang.JsonLanguage.Finalint");
+            				afterParserOrEnumRuleCall();
             			
 
             }
@@ -1401,8 +1442,113 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleIntNumber"
 
 
+    // $ANTLR start "entryRuleFinalint"
+    // InternalJsonLanguage.g:518:1: entryRuleFinalint returns [String current=null] : iv_ruleFinalint= ruleFinalint EOF ;
+    public final String entryRuleFinalint() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleFinalint = null;
+
+
+        try {
+            // InternalJsonLanguage.g:518:48: (iv_ruleFinalint= ruleFinalint EOF )
+            // InternalJsonLanguage.g:519:2: iv_ruleFinalint= ruleFinalint EOF
+            {
+             newCompositeNode(grammarAccess.getFinalintRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleFinalint=ruleFinalint();
+
+            state._fsp--;
+
+             current =iv_ruleFinalint.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleFinalint"
+
+
+    // $ANTLR start "ruleFinalint"
+    // InternalJsonLanguage.g:525:1: ruleFinalint returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    public final AntlrDatatypeRuleToken ruleFinalint() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        Token this_INT_1=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalJsonLanguage.g:531:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalJsonLanguage.g:532:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            {
+            // InternalJsonLanguage.g:532:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalJsonLanguage.g:533:3: (kw= '-' )? this_INT_1= RULE_INT
+            {
+            // InternalJsonLanguage.g:533:3: (kw= '-' )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==20) ) {
+                alt8=1;
+            }
+            switch (alt8) {
+                case 1 :
+                    // InternalJsonLanguage.g:534:4: kw= '-'
+                    {
+                    kw=(Token)match(input,20,FOLLOW_10); 
+
+                    				current.merge(kw);
+                    				newLeafNode(kw, grammarAccess.getFinalintAccess().getHyphenMinusKeyword_0());
+                    			
+
+                    }
+                    break;
+
+            }
+
+            this_INT_1=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+            			current.merge(this_INT_1);
+            		
+
+            			newLeafNode(this_INT_1, grammarAccess.getFinalintAccess().getINTTerminalRuleCall_1());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleFinalint"
+
+
     // $ANTLR start "entryRuleComplexNumber"
-    // InternalJsonLanguage.g:517:1: entryRuleComplexNumber returns [EObject current=null] : iv_ruleComplexNumber= ruleComplexNumber EOF ;
+    // InternalJsonLanguage.g:551:1: entryRuleComplexNumber returns [EObject current=null] : iv_ruleComplexNumber= ruleComplexNumber EOF ;
     public final EObject entryRuleComplexNumber() throws RecognitionException {
         EObject current = null;
 
@@ -1410,8 +1556,8 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonLanguage.g:517:54: (iv_ruleComplexNumber= ruleComplexNumber EOF )
-            // InternalJsonLanguage.g:518:2: iv_ruleComplexNumber= ruleComplexNumber EOF
+            // InternalJsonLanguage.g:551:54: (iv_ruleComplexNumber= ruleComplexNumber EOF )
+            // InternalJsonLanguage.g:552:2: iv_ruleComplexNumber= ruleComplexNumber EOF
             {
              newCompositeNode(grammarAccess.getComplexNumberRule()); 
             pushFollow(FOLLOW_1);
@@ -1438,7 +1584,7 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComplexNumber"
-    // InternalJsonLanguage.g:524:1: ruleComplexNumber returns [EObject current=null] : ( (lv_val_0_0= ruleCOMPLEX ) ) ;
+    // InternalJsonLanguage.g:558:1: ruleComplexNumber returns [EObject current=null] : ( (lv_val_0_0= ruleCOMPLEX ) ) ;
     public final EObject ruleComplexNumber() throws RecognitionException {
         EObject current = null;
 
@@ -1449,14 +1595,14 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonLanguage.g:530:2: ( ( (lv_val_0_0= ruleCOMPLEX ) ) )
-            // InternalJsonLanguage.g:531:2: ( (lv_val_0_0= ruleCOMPLEX ) )
+            // InternalJsonLanguage.g:564:2: ( ( (lv_val_0_0= ruleCOMPLEX ) ) )
+            // InternalJsonLanguage.g:565:2: ( (lv_val_0_0= ruleCOMPLEX ) )
             {
-            // InternalJsonLanguage.g:531:2: ( (lv_val_0_0= ruleCOMPLEX ) )
-            // InternalJsonLanguage.g:532:3: (lv_val_0_0= ruleCOMPLEX )
+            // InternalJsonLanguage.g:565:2: ( (lv_val_0_0= ruleCOMPLEX ) )
+            // InternalJsonLanguage.g:566:3: (lv_val_0_0= ruleCOMPLEX )
             {
-            // InternalJsonLanguage.g:532:3: (lv_val_0_0= ruleCOMPLEX )
-            // InternalJsonLanguage.g:533:4: lv_val_0_0= ruleCOMPLEX
+            // InternalJsonLanguage.g:566:3: (lv_val_0_0= ruleCOMPLEX )
+            // InternalJsonLanguage.g:567:4: lv_val_0_0= ruleCOMPLEX
             {
 
             				newCompositeNode(grammarAccess.getComplexNumberAccess().getValCOMPLEXParserRuleCall_0());
@@ -1503,7 +1649,7 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCOMPLEX"
-    // InternalJsonLanguage.g:553:1: entryRuleCOMPLEX returns [String current=null] : iv_ruleCOMPLEX= ruleCOMPLEX EOF ;
+    // InternalJsonLanguage.g:587:1: entryRuleCOMPLEX returns [String current=null] : iv_ruleCOMPLEX= ruleCOMPLEX EOF ;
     public final String entryRuleCOMPLEX() throws RecognitionException {
         String current = null;
 
@@ -1514,8 +1660,8 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
         	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 
         try {
-            // InternalJsonLanguage.g:555:2: (iv_ruleCOMPLEX= ruleCOMPLEX EOF )
-            // InternalJsonLanguage.g:556:2: iv_ruleCOMPLEX= ruleCOMPLEX EOF
+            // InternalJsonLanguage.g:589:2: (iv_ruleCOMPLEX= ruleCOMPLEX EOF )
+            // InternalJsonLanguage.g:590:2: iv_ruleCOMPLEX= ruleCOMPLEX EOF
             {
              newCompositeNode(grammarAccess.getCOMPLEXRule()); 
             pushFollow(FOLLOW_1);
@@ -1545,7 +1691,7 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCOMPLEX"
-    // InternalJsonLanguage.g:565:1: ruleCOMPLEX returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )? ) ;
+    // InternalJsonLanguage.g:599:1: ruleCOMPLEX returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )? ) ;
     public final AntlrDatatypeRuleToken ruleCOMPLEX() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1559,24 +1705,24 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
         	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 
         try {
-            // InternalJsonLanguage.g:572:2: ( ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )? ) )
-            // InternalJsonLanguage.g:573:2: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )? )
+            // InternalJsonLanguage.g:606:2: ( ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )? ) )
+            // InternalJsonLanguage.g:607:2: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )? )
             {
-            // InternalJsonLanguage.g:573:2: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )? )
-            // InternalJsonLanguage.g:574:3: (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )?
+            // InternalJsonLanguage.g:607:2: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )? )
+            // InternalJsonLanguage.g:608:3: (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )?
             {
-            // InternalJsonLanguage.g:574:3: (kw= '-' )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalJsonLanguage.g:608:3: (kw= '-' )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==20) ) {
-                alt8=1;
+            if ( (LA9_0==20) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalJsonLanguage.g:575:4: kw= '-'
+                    // InternalJsonLanguage.g:609:4: kw= '-'
                     {
-                    kw=(Token)match(input,20,FOLLOW_10); 
+                    kw=(Token)match(input,20,FOLLOW_11); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getHyphenMinusKeyword_0());
@@ -1587,18 +1733,18 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalJsonLanguage.g:581:3: (this_INT_1= RULE_INT )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalJsonLanguage.g:615:3: (this_INT_1= RULE_INT )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==RULE_INT) ) {
-                alt9=1;
+            if ( (LA10_0==RULE_INT) ) {
+                alt10=1;
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // InternalJsonLanguage.g:582:4: this_INT_1= RULE_INT
+                    // InternalJsonLanguage.g:616:4: this_INT_1= RULE_INT
                     {
-                    this_INT_1=(Token)match(input,RULE_INT,FOLLOW_11); 
+                    this_INT_1=(Token)match(input,RULE_INT,FOLLOW_12); 
 
                     				current.merge(this_INT_1);
                     			
@@ -1611,7 +1757,7 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
             }
 
-            kw=(Token)match(input,21,FOLLOW_12); 
+            kw=(Token)match(input,21,FOLLOW_10); 
 
             			current.merge(kw);
             			newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getFullStopKeyword_2());
@@ -1623,36 +1769,36 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_INT_3, grammarAccess.getCOMPLEXAccess().getINTTerminalRuleCall_3());
             		
-            // InternalJsonLanguage.g:602:3: ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalJsonLanguage.g:636:3: ( (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( ((LA13_0>=22 && LA13_0<=23)) ) {
-                alt13=1;
+            if ( ((LA14_0>=22 && LA14_0<=23)) ) {
+                alt14=1;
             }
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
-                    // InternalJsonLanguage.g:603:4: (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT
+                    // InternalJsonLanguage.g:637:4: (kw= 'E' | kw= 'e' ) (kw= '-' )? (kw= '+' )? this_INT_8= RULE_INT
                     {
-                    // InternalJsonLanguage.g:603:4: (kw= 'E' | kw= 'e' )
-                    int alt10=2;
-                    int LA10_0 = input.LA(1);
+                    // InternalJsonLanguage.g:637:4: (kw= 'E' | kw= 'e' )
+                    int alt11=2;
+                    int LA11_0 = input.LA(1);
 
-                    if ( (LA10_0==22) ) {
-                        alt10=1;
+                    if ( (LA11_0==22) ) {
+                        alt11=1;
                     }
-                    else if ( (LA10_0==23) ) {
-                        alt10=2;
+                    else if ( (LA11_0==23) ) {
+                        alt11=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 10, 0, input);
+                            new NoViableAltException("", 11, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt10) {
+                    switch (alt11) {
                         case 1 :
-                            // InternalJsonLanguage.g:604:5: kw= 'E'
+                            // InternalJsonLanguage.g:638:5: kw= 'E'
                             {
                             kw=(Token)match(input,22,FOLLOW_14); 
 
@@ -1663,7 +1809,7 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalJsonLanguage.g:610:5: kw= 'e'
+                            // InternalJsonLanguage.g:644:5: kw= 'e'
                             {
                             kw=(Token)match(input,23,FOLLOW_14); 
 
@@ -1676,16 +1822,16 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJsonLanguage.g:616:4: (kw= '-' )?
-                    int alt11=2;
-                    int LA11_0 = input.LA(1);
+                    // InternalJsonLanguage.g:650:4: (kw= '-' )?
+                    int alt12=2;
+                    int LA12_0 = input.LA(1);
 
-                    if ( (LA11_0==20) ) {
-                        alt11=1;
+                    if ( (LA12_0==20) ) {
+                        alt12=1;
                     }
-                    switch (alt11) {
+                    switch (alt12) {
                         case 1 :
-                            // InternalJsonLanguage.g:617:5: kw= '-'
+                            // InternalJsonLanguage.g:651:5: kw= '-'
                             {
                             kw=(Token)match(input,20,FOLLOW_15); 
 
@@ -1698,18 +1844,18 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJsonLanguage.g:623:4: (kw= '+' )?
-                    int alt12=2;
-                    int LA12_0 = input.LA(1);
+                    // InternalJsonLanguage.g:657:4: (kw= '+' )?
+                    int alt13=2;
+                    int LA13_0 = input.LA(1);
 
-                    if ( (LA12_0==24) ) {
-                        alt12=1;
+                    if ( (LA13_0==24) ) {
+                        alt13=1;
                     }
-                    switch (alt12) {
+                    switch (alt13) {
                         case 1 :
-                            // InternalJsonLanguage.g:624:5: kw= '+'
+                            // InternalJsonLanguage.g:658:5: kw= '+'
                             {
-                            kw=(Token)match(input,24,FOLLOW_12); 
+                            kw=(Token)match(input,24,FOLLOW_10); 
 
                             					current.merge(kw);
                             					newLeafNode(kw, grammarAccess.getCOMPLEXAccess().getPlusSignKeyword_4_2());
@@ -1771,9 +1917,9 @@ public class InternalJsonLanguageParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00000000003E8830L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000003F8830L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000011000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000200020L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000200020L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000C00002L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000001100020L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001000020L});

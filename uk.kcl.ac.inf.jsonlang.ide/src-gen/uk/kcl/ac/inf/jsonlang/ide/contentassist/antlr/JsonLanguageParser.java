@@ -42,6 +42,7 @@ public class JsonLanguageParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getArrayAccess().getGroup(), "rule__Array__Group__0");
 			builder.put(grammarAccess.getArrayAccess().getGroup_1(), "rule__Array__Group_1__0");
 			builder.put(grammarAccess.getArrayAccess().getGroup_1_1(), "rule__Array__Group_1_1__0");
+			builder.put(grammarAccess.getFinalintAccess().getGroup(), "rule__Finalint__Group__0");
 			builder.put(grammarAccess.getCOMPLEXAccess().getGroup(), "rule__COMPLEX__Group__0");
 			builder.put(grammarAccess.getCOMPLEXAccess().getGroup_4(), "rule__COMPLEX__Group_4__0");
 			builder.put(grammarAccess.getJsonProgramAccess().getStatementAssignment_1_0(), "rule__JsonProgram__StatementAssignment_1_0");

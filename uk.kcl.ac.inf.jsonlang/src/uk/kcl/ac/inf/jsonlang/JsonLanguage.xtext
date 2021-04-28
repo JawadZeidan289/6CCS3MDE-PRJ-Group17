@@ -29,10 +29,14 @@ Null:
     val = 'null';
 
 Number:
-    IntNumber | ComplexNumber;
+	IntNumber | ComplexNumber;
 
 IntNumber:
-    val = INT;
+    val = Finalint;
+
+Finalint:
+	'-'? INT
+;
 
 ComplexNumber:
     val = COMPLEX;

@@ -126,7 +126,7 @@ public class JsonLanguageSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     IntNumber returns IntNumber
 	 *
 	 * Constraint:
-	 *     val=INT
+	 *     val=Finalint
 	 */
 	protected void sequence_IntNumber(ISerializationContext context, IntNumber semanticObject) {
 		if (errorAcceptor != null) {
@@ -134,7 +134,7 @@ public class JsonLanguageSemanticSequencer extends AbstractDelegatingSemanticSeq
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JsonLanguagePackage.Literals.INT_NUMBER__VAL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntNumberAccess().getValINTTerminalRuleCall_0(), semanticObject.getVal());
+		feeder.accept(grammarAccess.getIntNumberAccess().getValFinalintParserRuleCall_0(), semanticObject.getVal());
 		feeder.finish();
 	}
 	

@@ -8,8 +8,18 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import uk.kcl.ac.inf.jsonlang.jsonLanguage.JsonProgram
-//import org.w3c.dom.Text
-import uk.kcl.ac.inf.jsonlang.jsonLanguage.IntNumber
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.Statement
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.ArrayImpl
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.StatementImpl
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.TextImpl
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.IntNumberImpl
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.NullImpl
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.BooleanImpl
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.ComplexNumberImpl
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.JsonProgramImpl
+import org.eclipse.emf.common.util.EList
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.Value
+import uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.ValueImpl
 
 /**
  * Generates code from your model files on save.
@@ -42,10 +52,109 @@ class JsonLanguageGenerator extends AbstractGenerator {
 //    '''
     
     
-    def generate(JsonProgram model)'''
-        Programs contains:
-        
-        - «model.eAllContents.filter(IntNumber).size» number of Int
-    '''
-   
+    def generate(JsonProgram model) {
+    	val statements = model.statement
+		'''
+		Program contains:
+		
+		«checkStatement(statements)»
+		'''
+    }
+    
+    def checkStatement(EList<Statement> statements) {
+	'''
+		«FOR Statement s : statements»
+			«val statement = s as StatementImpl»
+			«switch statement.value.class.toString {
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.JsonProgramImpl' : {
+					val value = s.value as JsonProgramImpl
+					val key = s.key
+					'''
+					
+					    Program '«key»' contains : 
+	«checkStatement(value.statement)»
+	
+	'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.TextImpl' : {
+					val value = s.value as TextImpl
+					val key = s.key
+					'''    key '«key»' has value : «value.^val» (String)'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.IntNumberImpl' : {
+					val value = s.value as IntNumberImpl
+					val key = s.key
+					'''    key '«key»' has value : «value.^val» (Int)'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.ComplexNumberImpl' : {
+					val value = s.value as ComplexNumberImpl
+					val key = s.key
+					'''    key '«key»' has value : «value.^val» (Complex)'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.BooleanImpl' : {
+					val value = s.value as BooleanImpl
+					val key = s.key
+					'''    key '«key»' has value : «value.^val» (Boolean)'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.NullImpl' : {
+					val value = s.value as NullImpl
+					val key = s.key
+					'''    key '«key»' has value : «value.^val» (Null)'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.ArrayImpl' : {
+					val value = s.value as ArrayImpl
+					val key = s.key
+					val list = value.value
+					'''    List '«key»' contains : [
+	«checkValues(list)»]'''
+				}
+			}»
+		«ENDFOR»
+	'''
+    }
+    
+        def checkValues(EList<Value> values) {
+	'''
+		«FOR Value v : values»
+			«val statement = v as ValueImpl»
+			«switch statement.class.toString {
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.JsonProgramImpl' : {
+					val value = v as JsonProgramImpl
+					'''
+					
+					    Program containing : 
+	«checkStatement(value.statement)»
+	
+	'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.TextImpl' : {
+					val value = v as TextImpl
+					'''    «value.^val» (String)'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.IntNumberImpl' : {
+					val value = v as IntNumberImpl
+					'''    «value.^val» (Int)'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.ComplexNumberImpl' : {
+					val value = v as ComplexNumberImpl
+					'''    «value.^val» (Complex)'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.BooleanImpl' : {
+					val value = v as BooleanImpl
+					'''    «value.^val» (Boolean)'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.NullImpl' : {
+					val value = v as NullImpl
+					'''    «value.^val» (Null)'''
+				}
+				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.ArrayImpl' : {
+					val value = v as ArrayImpl
+					val list = value.value
+					'''    List containing : [
+	«checkValues(list)»]'''
+				}
+			}»
+		«ENDFOR»
+	'''
+    }
 }

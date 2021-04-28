@@ -495,21 +495,55 @@ ruleIntNumber returns [EObject current=null]
 }:
 	(
 		(
-			lv_val_0_0=RULE_INT
 			{
-				newLeafNode(lv_val_0_0, grammarAccess.getIntNumberAccess().getValINTTerminalRuleCall_0());
+				newCompositeNode(grammarAccess.getIntNumberAccess().getValFinalintParserRuleCall_0());
 			}
+			lv_val_0_0=ruleFinalint
 			{
 				if ($current==null) {
-					$current = createModelElement(grammarAccess.getIntNumberRule());
+					$current = createModelElementForParent(grammarAccess.getIntNumberRule());
 				}
-				setWithLastConsumed(
+				set(
 					$current,
 					"val",
 					lv_val_0_0,
-					"org.eclipse.xtext.common.Terminals.INT");
+					"uk.kcl.ac.inf.jsonlang.JsonLanguage.Finalint");
+				afterParserOrEnumRuleCall();
 			}
 		)
+	)
+;
+
+// Entry rule entryRuleFinalint
+entryRuleFinalint returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getFinalintRule()); }
+	iv_ruleFinalint=ruleFinalint
+	{ $current=$iv_ruleFinalint.current.getText(); }
+	EOF;
+
+// Rule Finalint
+ruleFinalint returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			kw='-'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getFinalintAccess().getHyphenMinusKeyword_0());
+			}
+		)?
+		this_INT_1=RULE_INT
+		{
+			$current.merge(this_INT_1);
+		}
+		{
+			newLeafNode(this_INT_1, grammarAccess.getFinalintAccess().getINTTerminalRuleCall_1());
+		}
 	)
 ;
 

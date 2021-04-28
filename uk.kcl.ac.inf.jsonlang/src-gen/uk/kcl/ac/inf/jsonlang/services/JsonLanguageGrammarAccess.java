@@ -259,17 +259,36 @@ public class JsonLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 	public class IntNumberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.kcl.ac.inf.jsonlang.JsonLanguage.IntNumber");
 		private final Assignment cValAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValINTTerminalRuleCall_0 = (RuleCall)cValAssignment.eContents().get(0);
+		private final RuleCall cValFinalintParserRuleCall_0 = (RuleCall)cValAssignment.eContents().get(0);
 		
 		//IntNumber:
-		//	val=INT;
+		//	val=Finalint;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//val=INT
+		//val=Finalint
 		public Assignment getValAssignment() { return cValAssignment; }
 		
+		//Finalint
+		public RuleCall getValFinalintParserRuleCall_0() { return cValFinalintParserRuleCall_0; }
+	}
+	public class FinalintElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.kcl.ac.inf.jsonlang.JsonLanguage.Finalint");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//Finalint:
+		//	'-'? INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'-'? INT
+		public Group getGroup() { return cGroup; }
+		
+		//'-'?
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
+		
 		//INT
-		public RuleCall getValINTTerminalRuleCall_0() { return cValINTTerminalRuleCall_0; }
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
 	public class ComplexNumberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.kcl.ac.inf.jsonlang.JsonLanguage.ComplexNumber");
@@ -352,6 +371,7 @@ public class JsonLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 	private final NullElements pNull;
 	private final NumberElements pNumber;
 	private final IntNumberElements pIntNumber;
+	private final FinalintElements pFinalint;
 	private final ComplexNumberElements pComplexNumber;
 	private final COMPLEXElements pCOMPLEX;
 	
@@ -373,6 +393,7 @@ public class JsonLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 		this.pNull = new NullElements();
 		this.pNumber = new NumberElements();
 		this.pIntNumber = new IntNumberElements();
+		this.pFinalint = new FinalintElements();
 		this.pComplexNumber = new ComplexNumberElements();
 		this.pCOMPLEX = new COMPLEXElements();
 	}
@@ -486,13 +507,23 @@ public class JsonLanguageGrammarAccess extends AbstractElementFinder.AbstractGra
 	}
 	
 	//IntNumber:
-	//	val=INT;
+	//	val=Finalint;
 	public IntNumberElements getIntNumberAccess() {
 		return pIntNumber;
 	}
 	
 	public ParserRule getIntNumberRule() {
 		return getIntNumberAccess().getRule();
+	}
+	
+	//Finalint:
+	//	'-'? INT;
+	public FinalintElements getFinalintAccess() {
+		return pFinalint;
+	}
+	
+	public ParserRule getFinalintRule() {
+		return getFinalintAccess().getRule();
 	}
 	
 	//ComplexNumber:

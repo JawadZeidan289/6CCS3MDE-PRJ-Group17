@@ -35,7 +35,7 @@ public class IntNumberImpl extends NumberImpl implements IntNumber
    * @generated
    * @ordered
    */
-  protected static final int VAL_EDEFAULT = 0;
+  protected static final String VAL_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getVal() <em>Val</em>}' attribute.
@@ -45,7 +45,7 @@ public class IntNumberImpl extends NumberImpl implements IntNumber
    * @generated
    * @ordered
    */
-  protected int val = VAL_EDEFAULT;
+  protected String val = VAL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public class IntNumberImpl extends NumberImpl implements IntNumber
    * @generated
    */
   @Override
-  public int getVal()
+  public String getVal()
   {
     return val;
   }
@@ -85,9 +85,9 @@ public class IntNumberImpl extends NumberImpl implements IntNumber
    * @generated
    */
   @Override
-  public void setVal(int newVal)
+  public void setVal(String newVal)
   {
-    int oldVal = val;
+    String oldVal = val;
     val = newVal;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, JsonLanguagePackage.INT_NUMBER__VAL, oldVal, val));
@@ -120,7 +120,7 @@ public class IntNumberImpl extends NumberImpl implements IntNumber
     switch (featureID)
     {
       case JsonLanguagePackage.INT_NUMBER__VAL:
-        setVal((Integer)newValue);
+        setVal((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -154,7 +154,7 @@ public class IntNumberImpl extends NumberImpl implements IntNumber
     switch (featureID)
     {
       case JsonLanguagePackage.INT_NUMBER__VAL:
-        return val != VAL_EDEFAULT;
+        return VAL_EDEFAULT == null ? val != null : !VAL_EDEFAULT.equals(val);
     }
     return super.eIsSet(featureID);
   }

@@ -27,12 +27,12 @@ public interface IntNumber extends uk.kcl.ac.inf.jsonlang.jsonLanguage.Number
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Val</em>' attribute.
-   * @see #setVal(int)
+   * @see #setVal(String)
    * @see uk.kcl.ac.inf.jsonlang.jsonLanguage.JsonLanguagePackage#getIntNumber_Val()
    * @model
    * @generated
    */
-  int getVal();
+  String getVal();
 
   /**
    * Sets the value of the '{@link uk.kcl.ac.inf.jsonlang.jsonLanguage.IntNumber#getVal <em>Val</em>}' attribute.
@@ -42,6 +42,6 @@ public interface IntNumber extends uk.kcl.ac.inf.jsonlang.jsonLanguage.Number
    * @see #getVal()
    * @generated
    */
-  void setVal(int value);
+  void setVal(String value);
 
 } // IntNumber

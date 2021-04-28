@@ -336,10 +336,10 @@ public class InternalJsonLanguageLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonLanguage.g:1318:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalJsonLanguage.g:1318:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalJsonLanguage.g:1397:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalJsonLanguage.g:1397:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalJsonLanguage.g:1318:11: ( '^' )?
+            // InternalJsonLanguage.g:1397:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -348,7 +348,7 @@ public class InternalJsonLanguageLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalJsonLanguage.g:1318:11: '^'
+                    // InternalJsonLanguage.g:1397:11: '^'
                     {
                     match('^'); 
 
@@ -366,7 +366,7 @@ public class InternalJsonLanguageLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalJsonLanguage.g:1318:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalJsonLanguage.g:1397:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -415,10 +415,10 @@ public class InternalJsonLanguageLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonLanguage.g:1320:10: ( ( '0' .. '9' )+ )
-            // InternalJsonLanguage.g:1320:12: ( '0' .. '9' )+
+            // InternalJsonLanguage.g:1399:10: ( ( '0' .. '9' )+ )
+            // InternalJsonLanguage.g:1399:12: ( '0' .. '9' )+
             {
-            // InternalJsonLanguage.g:1320:12: ( '0' .. '9' )+
+            // InternalJsonLanguage.g:1399:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -432,7 +432,7 @@ public class InternalJsonLanguageLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalJsonLanguage.g:1320:13: '0' .. '9'
+            	    // InternalJsonLanguage.g:1399:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -464,10 +464,10 @@ public class InternalJsonLanguageLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonLanguage.g:1322:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalJsonLanguage.g:1322:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalJsonLanguage.g:1401:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalJsonLanguage.g:1401:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalJsonLanguage.g:1322:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalJsonLanguage.g:1401:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -485,10 +485,10 @@ public class InternalJsonLanguageLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalJsonLanguage.g:1322:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalJsonLanguage.g:1401:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalJsonLanguage.g:1322:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalJsonLanguage.g:1401:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -504,7 +504,7 @@ public class InternalJsonLanguageLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalJsonLanguage.g:1322:21: '\\\\' .
+                    	    // InternalJsonLanguage.g:1401:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -512,7 +512,7 @@ public class InternalJsonLanguageLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalJsonLanguage.g:1322:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalJsonLanguage.g:1401:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -537,10 +537,10 @@ public class InternalJsonLanguageLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalJsonLanguage.g:1322:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalJsonLanguage.g:1401:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalJsonLanguage.g:1322:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalJsonLanguage.g:1401:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -556,7 +556,7 @@ public class InternalJsonLanguageLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalJsonLanguage.g:1322:54: '\\\\' .
+                    	    // InternalJsonLanguage.g:1401:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -564,7 +564,7 @@ public class InternalJsonLanguageLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalJsonLanguage.g:1322:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalJsonLanguage.g:1401:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -607,12 +607,12 @@ public class InternalJsonLanguageLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonLanguage.g:1324:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalJsonLanguage.g:1324:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalJsonLanguage.g:1403:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalJsonLanguage.g:1403:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalJsonLanguage.g:1324:24: ( options {greedy=false; } : . )*
+            // InternalJsonLanguage.g:1403:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -637,7 +637,7 @@ public class InternalJsonLanguageLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalJsonLanguage.g:1324:52: .
+            	    // InternalJsonLanguage.g:1403:52: .
             	    {
             	    matchAny(); 
 
@@ -667,12 +667,12 @@ public class InternalJsonLanguageLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonLanguage.g:1326:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalJsonLanguage.g:1326:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalJsonLanguage.g:1405:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalJsonLanguage.g:1405:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalJsonLanguage.g:1326:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalJsonLanguage.g:1405:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -685,7 +685,7 @@ public class InternalJsonLanguageLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalJsonLanguage.g:1326:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalJsonLanguage.g:1405:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -705,7 +705,7 @@ public class InternalJsonLanguageLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalJsonLanguage.g:1326:40: ( ( '\\r' )? '\\n' )?
+            // InternalJsonLanguage.g:1405:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -714,9 +714,9 @@ public class InternalJsonLanguageLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalJsonLanguage.g:1326:41: ( '\\r' )? '\\n'
+                    // InternalJsonLanguage.g:1405:41: ( '\\r' )? '\\n'
                     {
-                    // InternalJsonLanguage.g:1326:41: ( '\\r' )?
+                    // InternalJsonLanguage.g:1405:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -725,7 +725,7 @@ public class InternalJsonLanguageLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalJsonLanguage.g:1326:41: '\\r'
+                            // InternalJsonLanguage.g:1405:41: '\\r'
                             {
                             match('\r'); 
 
@@ -757,10 +757,10 @@ public class InternalJsonLanguageLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonLanguage.g:1328:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalJsonLanguage.g:1328:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJsonLanguage.g:1407:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalJsonLanguage.g:1407:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalJsonLanguage.g:1328:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJsonLanguage.g:1407:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -814,8 +814,8 @@ public class InternalJsonLanguageLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonLanguage.g:1330:16: ( . )
-            // InternalJsonLanguage.g:1330:18: .
+            // InternalJsonLanguage.g:1409:16: ( . )
+            // InternalJsonLanguage.g:1409:18: .
             {
             matchAny(); 
 

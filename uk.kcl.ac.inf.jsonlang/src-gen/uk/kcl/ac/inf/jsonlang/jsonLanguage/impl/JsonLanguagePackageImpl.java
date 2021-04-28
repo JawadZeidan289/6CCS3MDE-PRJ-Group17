@@ -495,7 +495,7 @@ public class JsonLanguagePackageImpl extends EPackageImpl implements JsonLanguag
     initEClass(numberEClass, uk.kcl.ac.inf.jsonlang.jsonLanguage.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(intNumberEClass, IntNumber.class, "IntNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntNumber_Val(), ecorePackage.getEInt(), "val", null, 0, 1, IntNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIntNumber_Val(), ecorePackage.getEString(), "val", null, 0, 1, IntNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(complexNumberEClass, ComplexNumber.class, "ComplexNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComplexNumber_Val(), ecorePackage.getEFloat(), "val", null, 0, 1, ComplexNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -274,6 +274,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleFinalint
+entryRuleFinalint
+:
+{ before(grammarAccess.getFinalintRule()); }
+	 ruleFinalint
+{ after(grammarAccess.getFinalintRule()); } 
+	 EOF 
+;
+
+// Rule Finalint
+ruleFinalint 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getFinalintAccess().getGroup()); }
+		(rule__Finalint__Group__0)
+		{ after(grammarAccess.getFinalintAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleComplexNumber
 entryRuleComplexNumber
 :
@@ -899,6 +924,60 @@ finally {
 }
 
 
+rule__Finalint__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Finalint__Group__0__Impl
+	rule__Finalint__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Finalint__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getFinalintAccess().getHyphenMinusKeyword_0()); }
+	('-')?
+	{ after(grammarAccess.getFinalintAccess().getHyphenMinusKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Finalint__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Finalint__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Finalint__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getFinalintAccess().getINTTerminalRuleCall_1()); }
+	RULE_INT
+	{ after(grammarAccess.getFinalintAccess().getINTTerminalRuleCall_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__COMPLEX__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -1291,9 +1370,9 @@ rule__IntNumber__ValAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getIntNumberAccess().getValINTTerminalRuleCall_0()); }
-		RULE_INT
-		{ after(grammarAccess.getIntNumberAccess().getValINTTerminalRuleCall_0()); }
+		{ before(grammarAccess.getIntNumberAccess().getValFinalintParserRuleCall_0()); }
+		ruleFinalint
+		{ after(grammarAccess.getIntNumberAccess().getValFinalintParserRuleCall_0()); }
 	)
 ;
 finally {
