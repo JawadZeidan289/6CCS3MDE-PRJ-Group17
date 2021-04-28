@@ -190,7 +190,7 @@ public class JsonLanguageGenerator extends AbstractGenerator {
                 final EList<Value> list = value.getValue();
                 StringConcatenation _builder_1 = new StringConcatenation();
                 _builder_1.append("    ");
-                _builder_1.append("List \'");
+                _builder_1.append("Array \'");
                 _builder_1.append(key, "    ");
                 _builder_1.append("\' contains : [");
                 _builder_1.newLineIfNotEmpty();
@@ -311,7 +311,7 @@ public class JsonLanguageGenerator extends AbstractGenerator {
                 final EList<Value> list = value.getValue();
                 StringConcatenation _builder_1 = new StringConcatenation();
                 _builder_1.append("    ");
-                _builder_1.append("List containing : [");
+                _builder_1.append("Array containing : [");
                 _builder_1.newLine();
                 _builder_1.append("\t");
                 Object _checkValues = this.checkValues(list);

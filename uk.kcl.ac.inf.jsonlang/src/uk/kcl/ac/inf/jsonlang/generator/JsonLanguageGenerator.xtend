@@ -105,7 +105,7 @@ class JsonLanguageGenerator extends AbstractGenerator {
 					val value = s.value as ArrayImpl
 					val key = s.key
 					val list = value.value
-					'''    List '«key»' contains : [
+					'''    Array '«key»' contains : [
 	«checkValues(list)»]'''
 				}
 			}»
@@ -150,7 +150,7 @@ class JsonLanguageGenerator extends AbstractGenerator {
 				case 'class uk.kcl.ac.inf.jsonlang.jsonLanguage.impl.ArrayImpl' : {
 					val value = v as ArrayImpl
 					val list = value.value
-					'''    List containing : [
+					'''    Array containing : [
 	«checkValues(list)»]'''
 				}
 			}»

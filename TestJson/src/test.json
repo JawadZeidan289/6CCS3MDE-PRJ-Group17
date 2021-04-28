@@ -12,7 +12,7 @@
 		"surname" : "Uka",
 		"age" : -21,
 		"anothernumber" : -5.0,
-		"thirdprogram" : {
+		"thirdprogram" : { 
 			"course" : "MDE",
 			"number": 1.0e-25,
 			"anotherlist" : ["one", "two", "three"]
@@ -22,4 +22,4 @@
 	},
 	"gender": "male",
 	"DOB": "24-02-2000"
-} 
+}
