@@ -5,8 +5,8 @@ This repository contains the coursework assigned to Group 17 for the Module 6CCS
 3. Navigate to `JsonLanguage.xtext`: uk.kcl.ac.inf.jsonlang\src\uk.kcl.ac.inf.jsonlang.
 4. Right click on the file, click the `Run As` button and click the `Generate Xtext Artifacts` button on the drop down list.
 5. This will create the language made in `JsonLanguage.xtext` convert from Xtext to Java files.
-6. Navigate to the langauge generator file: uk.kcl.ac.inf.jsonlang\src\uk.kcl.ac.inf.jsonlang.generator. 
-7. Click the `Run As` button and select the `Eclipse Application` option.
+6. Navigate to the file labelled: uk.kcl.ac.inf.jsonlang. 
+7. Right click the file and click the `Run As` button and select the `Eclipse Application` option.
 8. If configuration is needed select `Launch Eclipse Runtime`.
 9. If any errors are reported by the IDE, press the `Proceed` button.
-10. In the Runtime Eclipse open the TestJson folder.
+10. In the Runtime Eclipse open the 'TestJson folder'. This folder includes a file containing example code which you can execute by making an appropriate change and then saving the file.
